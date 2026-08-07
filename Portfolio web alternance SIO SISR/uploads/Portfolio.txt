@@ -1,0 +1,87 @@
+Panny's Kitchen — fiche portfolio
+Concept
+Application Android native de gestion culinaire domestique. Elle relie trois choses que les apps de recettes traitent séparément : les recettes, le stock réel du foyer et la liste de courses. On sélectionne des repas à cuisiner, l'app calcule les quantités nécessaires (avec conversion d'unités), déduit ce qu'on a déjà en stock, et ne génère que le manquant — arrondi au conditionnement réel du magasin (paquet de 500 g, lot de 6…), avec le surplus affiché.
+
+Le tout est partagé en temps réel entre les membres d'un même foyer via un code d'invitation.
+
+Features principales
+Recettes
+
+Création/édition avec ingrédients, étapes photo par photo, temps de prep/cuisson, catégories, tags, favoris
+Import automatique depuis une URL (parsing JSON-LD schema.org, fallback HTML) — coller un lien de blog culinaire suffit
+Scan OCR d'une recette papier (ML Kit Text Recognition)
+Partage texte, QR code (ZXing) et export PDF
+Classification diététique automatique (viande / poisson / végétarien / végan) déduite des ingrédients
+Estimation calorique via table nutritionnelle intégrée (~ingrédients français)
+Stock
+
+Vue grille avec emojis auto-assignés par ingrédient, dates de péremption
+Scan code-barres → enrichissement produit via l'API OpenFoodFacts (nom, marque, contenance, photo)
+Scan de ticket de caisse (OCR) pour remplir le stock d'un coup
+Notifications d'expiration + suggestions de recettes utilisant les produits qui périment
+Emplacements personnalisables (frigo, congélo, placard…)
+Cuisine & courses
+
+Mode cuisine plein écran, étape par étape, avec scaling des portions
+Déduction automatique du stock après cuisson + historique
+Liste de courses triée par rayon de magasin (13 rayons, classification par mots-clés)
+Suivi des prix par ingrédient → estimation du coût du panier
+Widget écran d'accueil pour la liste de courses
+Planification
+
+Planning de repas par date et type de repas, générant directement la liste de courses
+Foyer
+
+Auth Google (Credential Manager), création/rejoint d'un foyer par code, sync temps réel Firestore (stock, courses, recettes, planning, historique) + migration des données locales existantes
+Stack technique
+Domaine	Techno
+Langage / plateforme	Kotlin, Android natif (minSdk 26, target 34, JVM 17)
+UI	Jetpack Compose + Material 3, animations, thème custom (ExtendedColors)
+Navigation	Navigation Compose (5 onglets + sous-écrans)
+Architecture	MVVM + Clean Architecture — data (DAO/entity/repository) → domain (models + use cases) → ui (screens/viewmodels), StateFlow / coroutines
+Persistance locale	Room (10 entités, 9 versions avec migrations SQL manuelles écrites à la main)
+Backend / temps réel	Firebase — Firestore (snapshot listeners), Auth, Google Sign-In, Credential Manager
+Vision	ML Kit (Text Recognition + Barcode Scanning) sur CameraX
+Images	Coil, stockage local via FileProvider
+API externe	OpenFoodFacts
+Divers	ZXing (QR), Reorderable (drag & drop), AppWidget, NotificationCompat, PdfDocument
+Build	Gradle KTS, KSP, R8/ProGuard en release
+Ce qui est intéressant à mettre en avant
+Moteur de conversion d'unités + matching flou d'ingrédients (normalisation, pluriels, accents) — c'est ce qui permet de rapprocher « 2 c. à soupe d'huile » du bidon d'1 L en stock.
+Sync offline-first : Room reste la source de vérité pour l'UI, Firestore ne fait que propager les deltas entre membres du foyer (chaque entité porte un firestoreId).
+Migrations Room manuelles sur 9 versions, sans destruction de données.
+Trois pipelines de saisie caméra distincts (recette OCR, code-barres, ticket de caisse) sur une même base CameraX.
+
+
+
+SDK Lavage Pro — Site vitrine + back-office de gestion de devis
+Le concept
+Site web professionnel complet pour une entreprise de nettoyage haute pression à Strasbourg (terrasses, façades, allées, anti-mousse, gouttières, cages d'escaliers).
+
+Le projet va au-delà de la simple vitrine : c'est une chaîne complète d'acquisition et de traitement des demandes. Le visiteur remplit un formulaire de devis avec photos de son chantier → la demande est enregistrée en base et notifiée par e-mail → l'artisan se connecte à un back-office privé, construit son devis ligne par ligne (désignation, quantité, unité, prix unitaire, calcul automatique des totaux et de l'acompte de 20 %) → et l'envoie au client sous forme d'e-mail HTML mis en page comme un devis officiel, avec numérotation automatique (DEV-2026-0042) et suivi de statut.
+
+Le tout est bilingue français / allemand — un choix pertinent pour une zone transfrontalière.
+
+Stack technique
+Front-end — HTML5 sémantique, CSS3 et JavaScript vanilla (ES5/ES6, zéro framework, zéro build step)
+Back-end — PHP 8 procédural, PDO
+Base de données — SQLite (mode WAL, clés étrangères activées)
+Hébergement — serveur Apache/LAMP, déploiement par SSH/SCP
+APIs tierces — Google Places API (avis clients), Google Analytics 4, Schema.org / JSON-LD
+
+Réalisations techniques notables
+Design system CSS maison — ~48 Ko de CSS structuré autour de custom properties (palette, échelle typographique, espacements, ombres), nomenclature BEM, 23 breakpoints responsive. Typographie Inter + Plus Jakarta Sans.
+
+Internationalisation sans dépendance — système FR→DE fait main : annotations data-i18n dans le HTML, dictionnaire de ~700 clés, préférence persistée en localStorage, bascule instantanée sans rechargement.
+
+Intégration Google Places avec dégradation gracieuse — récupération et affichage des avis Google réels, calcul dynamique du taux de satisfaction, mise à jour du JSON-LD aggregateRating à la volée. Cache localStorage de 24 h pour limiter les appels API, double implémentation (nouvelle API Place + fallback PlacesService) et affichage de secours si l'API ne répond pas.
+
+Formulaires sécurisés en AJAX — jetons CSRF à usage unique (hash_equals), honeypot anti-spam, validation client et serveur, upload multi-photos avec vérification du type MIME réel via finfo, e-mails MIME multipart (texte + HTML + pièces jointes) construits à la main.
+
+Back-office PHP — authentification par session avec password_hash et expiration à 2 h, tableau de bord avec compteurs par statut, éditeur de devis dynamique, lightbox photos, protection des dossiers sensibles par .htaccess.
+
+SEO et performance — JSON-LD LocalBusiness complet (horaires, géolocalisation, zone de service, catalogue d'offres), BreadcrumbList, balises Open Graph, sitemap, robots.txt, préconnexion aux domaines de polices.
+
+Conformité RGPD — bandeau de consentement cookies avec panneau de préférences granulaire, chargement conditionnel de GA4 (avec anonymize_ip) et suppression effective des cookies en cas de refus. Pages mentions légales et politique de confidentialité.
+
+UX — comparateurs avant/après à curseur glissant, animations au défilement via IntersectionObserver, accordéons FAQ, compteurs animés, navigation mobile en overlay, défilement fluide.
