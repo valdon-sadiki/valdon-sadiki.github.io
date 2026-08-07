@@ -141,20 +141,29 @@ Attendu : `301134`.
 
 ```powershell
 Add-Type -AssemblyName System.Drawing
-$src = [System.Drawing.Image]::FromFile("C:\Sites\Portfolio\_source\uploads\Photo Pro.png")
-$codec = [System.Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() | Where-Object { $_.MimeType -eq 'image/jpeg' }
-$params = New-Object System.Drawing.Imaging.EncoderParameters 1
-$params.Param[0] = New-Object System.Drawing.Imaging.EncoderParameter ([System.Drawing.Imaging.Encoder]::Quality, 82)
-$bmp = New-Object System.Drawing.Bitmap $src.Width, $src.Height
-$g = [System.Drawing.Graphics]::FromImage($bmp)
-$g.Clear([System.Drawing.Color]::White)
-$g.DrawImage($src, 0, 0, $src.Width, $src.Height)
-$bmp.Save("C:\Sites\Portfolio\media\photo-pro.jpg", $codec, $params)
-$g.Dispose(); $bmp.Dispose(); $src.Dispose()
-"{0} -> {1} octets" -f $src.Width, (Get-Item C:\Sites\Portfolio\media\photo-pro.jpg).Length
+$src = $null; $bmp = $null; $g = $null
+try {
+  $src = [System.Drawing.Image]::FromFile("C:\Sites\Portfolio\_source\uploads\Photo Pro.png")
+  $w = $src.Width; $h = $src.Height
+  $codec = [System.Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() | Where-Object { $_.MimeType -eq 'image/jpeg' }
+  $params = New-Object System.Drawing.Imaging.EncoderParameters 1
+  $params.Param[0] = New-Object System.Drawing.Imaging.EncoderParameter ([System.Drawing.Imaging.Encoder]::Quality, 82)
+  $bmp = New-Object System.Drawing.Bitmap $w, $h
+  $g = [System.Drawing.Graphics]::FromImage($bmp)
+  $g.Clear([System.Drawing.Color]::White)
+  $g.DrawImage($src, 0, 0, $w, $h)
+  $bmp.Save("C:\Sites\Portfolio\media\photo-pro.jpg", $codec, $params)
+  "{0}x{1} -> {2} octets" -f $w, $h, (Get-Item C:\Sites\Portfolio\media\photo-pro.jpg).Length
+} finally {
+  if ($g)   { $g.Dispose() }
+  if ($bmp) { $bmp.Dispose() }
+  if ($src) { $src.Dispose() }
+}
 ```
 
 Le `Clear(White)` est nécessaire : le JPEG n'a pas de canal alpha, et sans fond explicite une transparence éventuelle sortirait en noir.
+
+Le `try`/`finally` n'est pas décoratif : si `Save()` échoue (fichier verrouillé, disque plein), les trois poignées GDI+ resteraient ouvertes jusqu'à la fin de la session PowerShell, et le PNG source resterait verrouillé en écriture. Les dimensions sont capturées dans `$w`/`$h` **avant** le `finally`, sinon les lire après `Dispose()` lèverait une exception.
 
 - [ ] **Step 5 : Vérifier le poids et l'intégrité du JPEG**
 
