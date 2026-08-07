@@ -15,3 +15,6 @@ $RECYCLE.BIN/
 
 # Divers
 *.log
+
+# Espace de travail des agents (ledger, briefs, rapports de revue)
+.superpowers/
