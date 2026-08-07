@@ -67,11 +67,14 @@ C:\Sites\Portfolio\
 ├─ media/
 │  ├─ cv.pdf             (depuis uploads/cv-1786031691808.pdf)
 │  └─ photo-pro.jpg      (depuis uploads/Photo Pro.png, 2,0 Mo → JPEG < 300 Ko)
-├─ _source/              archive non publiée
+├─ _source/              archive non publiée, référence de comparaison
 │  ├─ Portfolio Valdon Sadiki.dc.html
 │  ├─ support.js
 │  ├─ .thumbnail
-│  └─ Portfolio.txt      fiches projets détaillées (source de contenu)
+│  └─ uploads/           CONSERVÉ INTACT — l'artifact le référence en relatif
+│     ├─ cv-1786031691808.pdf
+│     ├─ Photo Pro.png
+│     └─ Portfolio.txt   fiches projets détaillées (source de contenu)
 ├─ docs/superpowers/specs/
 ├─ .gitignore
 └─ README.md
@@ -122,6 +125,17 @@ Le comportement devient plus correct qu'aujourd'hui (le survol fonctionnera auss
 au clavier via `:focus-visible`). C'est le seul changement de comportement voulu.
 
 ### Vérification
+
+Le poste n'a **ni serveur local, ni navigateur automatisable** : Node, PHP et npx
+sont absents, et le `python.exe` présent dans le `PATH` est le raccourci Microsoft
+Store, qui ne s'exécute pas. Le site doit donc s'ouvrir en `file://` par double-clic,
+ce qui impose des chemins relatifs partout.
+
+La vérification est à deux niveaux. **Automatique** (exécutable par l'agent) :
+absence de syntaxe DC résiduelle, égalité des ensembles de couleurs, de valeurs
+`rgba`, de polices et de liens entre source et cible. **Humaine** : la comparaison
+visuelle revient à l'utilisateur — l'agent ne voit pas le rendu et ne doit jamais
+affirmer l'avoir vérifié.
 
 Comparaison visuelle des deux versions côte à côte à **1440 px, 768 px et 375 px**,
 plus vérification manuelle de : accordéon des centres d'intérêt (ouverture,
