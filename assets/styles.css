@@ -307,3 +307,39 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.5;
   color: var(--ink-muted);
 }
+
+/* ---------- Compétences ---------- */
+.skills__head { margin-bottom: 50px; }
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2px;
+}
+.skill-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px 28px;
+  background: var(--bg-card);
+  box-shadow: 0 0 0 1px rgba(35, 32, 27, 0.1);
+}
+.skill-group__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.skill-group__items { display: flex; flex-direction: column; gap: 10px; }
+.skill-group__item {
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+.skills__note {
+  margin: 24px 0 0;
+  max-width: 640px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
