@@ -325,8 +325,13 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ---------- Captures de projet ---------- */
+/* Ce bloc vit DANS .project__side, pas comme enfant direct de .project.
+   .project est une grille `repeat(auto-fit, minmax(260px, 1fr))` qui ouvre
+   jusqu'à cinq colonnes : avec deux enfants seulement, auto-fit effondre les
+   colonnes vides et il en reste deux à 50 %. Un troisième enfant occupant
+   toute la largeur empêche cet effondrement, et le texte se retrouve écrasé
+   sur une colonne sur cinq. Ne pas remonter ce bloc au niveau de .project. */
 .project__shots {
-  grid-column: 1 / -1;
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
