@@ -125,6 +125,7 @@ function setupLightbox() {
   overlay.hidden = true;
   overlay.setAttribute('role', 'dialog');
   overlay.setAttribute('aria-modal', 'true');
+  overlay.setAttribute('aria-label', 'Capture d’écran agrandie');
 
   var close = document.createElement('button');
   close.type = 'button';
@@ -174,7 +175,14 @@ function setupLightbox() {
   });
 
   document.addEventListener('keydown', function (e) {
-    if (!overlay.hidden && (e.key === 'Escape' || e.key === 'Esc')) hide();
+    if (overlay.hidden) return;
+    if (e.key === 'Escape' || e.key === 'Esc') { hide(); return; }
+    if (e.key === 'Tab') {
+      // La visionneuse ne contient qu'un seul élément focusable : maintenir le
+      // focus dessus suffit à honorer aria-modal, sans parcours à gérer.
+      e.preventDefault();
+      close.focus();
+    }
   });
 }
 
