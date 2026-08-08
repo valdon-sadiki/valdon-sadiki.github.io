@@ -40,8 +40,8 @@ impose de renommer le dépôt dans la foulée, sinon Pages bascule le site en
 « page de projet » servie sous un sous-chemin.
 
 Le dépôt est **public**, car GitHub Pages gratuit ne fonctionne pas sur un
-dépôt privé. Tout fichier suivi par git est donc lisible sur github.com, y compris
-ceux que Jekyll exclut du site publié (voir « À faire avant publication »).
+dépôt privé. Tout fichier suivi par git est donc lisible sur github.com, y
+compris ceux que Jekyll exclut du site publié (voir « CV : décision prise »).
 
 ## Contenu encore à fournir
 
@@ -51,11 +51,12 @@ vit désormais ici, et nulle part sur le site public.
 
 | Projet | Ce qui manque |
 |---|---|
-| 01 Panny's Kitchen | lien du dépôt GitHub |
 | 02 Auto-formation Linux | la liste des services installés au fil du labo |
 | 03 Mémoire persistante | un exemple chiffré de gain de temps |
-| 04 SDK Lavage Pro | période d'activité, volume de devis traités |
-| 05 FL Perf | durée du projet, nombre de versions |
+
+Trois demandes ont été écartées le 8 août 2026, et ne sont donc pas à reproposer :
+le lien du dépôt GitHub de Panny's Kitchen, la période d'activité et le volume de
+devis de SDK Lavage Pro, la durée et le nombre de versions de FL Perf.
 
 Le projet 02 a longtemps été le moins parlant des cinq alors qu'il est le plus
 proche de la cible SISR : ses deux captures montraient seulement que la VM
@@ -63,13 +64,16 @@ existait. Il montre désormais une session SSH ouverte depuis Windows, le servic
 actif et activé au démarrage, et une résolution DNS servie par dnsmasq. La suite
 du labo reste à documenter au fil des cours.
 
-## À faire avant publication
+## CV : décision prise
 
-- [ ] Décider si `media/cv.pdf` doit être public : il contient des données
-      personnelles (adresse, téléphone). Deux versions sont suivies par git :
-      `media/cv.pdf`, celle que sert le bouton de téléchargement, et
-      `_source/uploads/cv-1786031691808.pdf`, une version antérieure archivée.
-      Les deux doivent être arbitrées ensemble : la règle Jekyll rend `_source/`
-      non publié **par le site**, mais GitHub Pages gratuit exige un dépôt
-      public, donc l'archive reste lisible sur github.com quelle que soit cette
-      règle.
+Le 8 août 2026, le CV reste **public** et téléchargeable. Il ne comporte pas
+d'adresse postale, seulement la ville et un numéro de téléphone, ce qui est le
+niveau d'exposition attendu d'un CV que l'on diffuse à des recruteurs. La
+question est tranchée, inutile de la rouvrir.
+
+Deux versions sont suivies par git : `media/cv.pdf`, celle que sert le bouton de
+téléchargement, et `_source/uploads/cv-1786031691808.pdf`, une version
+antérieure archivée. La règle Jekyll rend `_source/` non publié **par le site**,
+mais GitHub Pages gratuit exige un dépôt public : l'archive reste donc lisible
+sur github.com. À supprimer du suivi git le jour où cette ancienne version n'a
+plus d'intérêt.
