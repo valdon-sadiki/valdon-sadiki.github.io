@@ -1508,8 +1508,12 @@ $m2 = $a2 | Where-Object { $b2 -notcontains $_ }
 if ($m2) { "ECHEC : rgba perdus -> $($m2 -join ' | ')" } else { "OK : $($a2.Count) valeurs rgba toutes presentes" }
 
 "=== 4. Polices ==="
+# L'URL Google Fonts encode les espaces en '+' ('IBM+Plex+Sans'). On normalise
+# avant de chercher, sinon toute police dont le nom comporte un espace et qui
+# n'apparait QUE dans le <link> ressort en faux negatif.
+$newNorm = $new -replace '\+', ' '
 foreach ($f in @('Cormorant Garamond','Karla','IBM Plex Sans','IBM Plex Mono','Spectral')) {
-  "{0,-6} {1}" -f $new.Contains($f), $f
+  "{0,-6} {1}" -f $newNorm.Contains($f), $f
 }
 
 "=== 5. Chemins absolus interdits ==="
