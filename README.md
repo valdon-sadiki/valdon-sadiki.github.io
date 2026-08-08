@@ -52,7 +52,11 @@ vit désormais ici, et nulle part sur le site public.
 | Projet | Ce qui manque |
 |---|---|
 | 02 Auto-formation Linux | la liste des services installés au fil du labo |
-| 03 Mémoire persistante | un exemple chiffré de gain de temps |
+
+Le chiffre du projet 03 a été fourni le 8 août 2026 : il vient des compteurs de
+tokens des transcrits de session, dans `~/.claude/projects/c--Sites-Portfolio/`.
+Contexte relu au démarrage d'une session, 490 000 tokens en reprenant un fil
+accumulé contre 32 000 avec un briefing du coffre, socle technique compris.
 
 Trois demandes ont été écartées le 8 août 2026, et ne sont donc pas à reproposer :
 le lien du dépôt GitHub de Panny's Kitchen, la période d'activité et le volume de
