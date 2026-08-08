@@ -8,7 +8,7 @@
 
 **Tech Stack :** HTML5, CSS3 (custom properties, BEM), JavaScript ES6 vanilla. Google Fonts. Aucune dépendance installée.
 
-**Spec de référence :** [`docs/superpowers/specs/2026-08-07-portfolio-alternance-design.md`](../specs/2026-08-07-portfolio-alternance-design.md)
+**Spec de référence :** [`_docs/superpowers/specs/2026-08-07-portfolio-alternance-design.md`](../specs/2026-08-07-portfolio-alternance-design.md)
 
 ---
 
@@ -22,6 +22,7 @@ Ces contraintes s'appliquent à **toutes** les tâches sans exception.
 - **Ne jamais modifier `_source/`.** C'est la référence de comparaison. Lecture seule après la tâche 1.
 - **Contenu textuel repris au caractère près**, apostrophes typographiques (`’`, U+2019) et espaces insécables inclus, tels qu'ils apparaissent dans le fichier source. Ne rien reformuler, ne rien corriger, même une faute apparente.
 - **Encodage UTF-8**, avec `<meta charset="utf-8">` en première ligne du `<head>`. Écrire les fichiers avec l'outil Write, jamais avec `Out-File` ou `Set-Content` sans `-Encoding utf8`.
+- **Toujours lire avec `-Encoding utf8`.** Windows PowerShell 5.1 lit par défaut dans la page de codes ANSI du système : sans ce paramètre, `Get-Content -Raw` corrompt tous les caractères accentués et les vérifications de fidélité textuelle renvoient des faux négatifs. Toutes les commandes de ce plan le précisent ; ne le retire pas, et ajoute-le à toute commande que tu écrirais en plus.
 - **Nommage BEM** (`bloc__element--modificateur`), cohérent avec la convention déjà employée sur SDK Lavage Pro.
 - **Aucun framework, aucun CDN** hormis Google Fonts (déjà présent dans la source).
 - **Valeurs de style reprises à l'identique.** Ne pas arrondir, ne pas harmoniser, ne pas « améliorer » une valeur (`17.5px`, `11.5px`, `16.5px`, `12.5px` sont volontaires).
@@ -141,20 +142,29 @@ Attendu : `301134`.
 
 ```powershell
 Add-Type -AssemblyName System.Drawing
-$src = [System.Drawing.Image]::FromFile("C:\Sites\Portfolio\_source\uploads\Photo Pro.png")
-$codec = [System.Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() | Where-Object { $_.MimeType -eq 'image/jpeg' }
-$params = New-Object System.Drawing.Imaging.EncoderParameters 1
-$params.Param[0] = New-Object System.Drawing.Imaging.EncoderParameter ([System.Drawing.Imaging.Encoder]::Quality, 82)
-$bmp = New-Object System.Drawing.Bitmap $src.Width, $src.Height
-$g = [System.Drawing.Graphics]::FromImage($bmp)
-$g.Clear([System.Drawing.Color]::White)
-$g.DrawImage($src, 0, 0, $src.Width, $src.Height)
-$bmp.Save("C:\Sites\Portfolio\media\photo-pro.jpg", $codec, $params)
-$g.Dispose(); $bmp.Dispose(); $src.Dispose()
-"{0} -> {1} octets" -f $src.Width, (Get-Item C:\Sites\Portfolio\media\photo-pro.jpg).Length
+$src = $null; $bmp = $null; $g = $null
+try {
+  $src = [System.Drawing.Image]::FromFile("C:\Sites\Portfolio\_source\uploads\Photo Pro.png")
+  $w = $src.Width; $h = $src.Height
+  $codec = [System.Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() | Where-Object { $_.MimeType -eq 'image/jpeg' }
+  $params = New-Object System.Drawing.Imaging.EncoderParameters 1
+  $params.Param[0] = New-Object System.Drawing.Imaging.EncoderParameter ([System.Drawing.Imaging.Encoder]::Quality, 82)
+  $bmp = New-Object System.Drawing.Bitmap $w, $h
+  $g = [System.Drawing.Graphics]::FromImage($bmp)
+  $g.Clear([System.Drawing.Color]::White)
+  $g.DrawImage($src, 0, 0, $w, $h)
+  $bmp.Save("C:\Sites\Portfolio\media\photo-pro.jpg", $codec, $params)
+  "{0}x{1} -> {2} octets" -f $w, $h, (Get-Item C:\Sites\Portfolio\media\photo-pro.jpg).Length
+} finally {
+  if ($g)   { $g.Dispose() }
+  if ($bmp) { $bmp.Dispose() }
+  if ($src) { $src.Dispose() }
+}
 ```
 
 Le `Clear(White)` est nécessaire : le JPEG n'a pas de canal alpha, et sans fond explicite une transparence éventuelle sortirait en noir.
+
+Le `try`/`finally` n'est pas décoratif : si `Save()` échoue (fichier verrouillé, disque plein), les trois poignées GDI+ resteraient ouvertes jusqu'à la fin de la session PowerShell, et le PNG source resterait verrouillé en écriture. Les dimensions sont capturées dans `$w`/`$h` **avant** le `finally`, sinon les lire après `Dispose()` lèverait une exception.
 
 - [ ] **Step 5 : Vérifier le poids et l'intégrité du JPEG**
 
@@ -575,8 +585,8 @@ Le `.section__title` du hero utilise `clamp(34px, 3.6vw, 48px)` ; celui de la se
 - [ ] **Step 3 : Vérifier que le texte est identique à la source**
 
 ```powershell
-$src = Get-Content "C:\Sites\Portfolio\_source\Portfolio Valdon Sadiki.dc.html" -Raw
-$new = Get-Content "C:\Sites\Portfolio\index.html" -Raw
+$src = Get-Content "C:\Sites\Portfolio\_source\Portfolio Valdon Sadiki.dc.html" -Raw -Encoding utf8
+$new = Get-Content "C:\Sites\Portfolio\index.html" -Raw -Encoding utf8
 $phrases = @(
   "j'ai relié le ventilateur d'un vieux PC",
   "je suis fier du chemin parcouru",
@@ -776,7 +786,7 @@ Attention au projet 04 : le champ `context` contient des guillemets droits écha
 - [ ] **Step 4 : Vérifier la complétude et l'absence de repères**
 
 ```powershell
-$new = Get-Content "C:\Sites\Portfolio\index.html" -Raw
+$new = Get-Content "C:\Sites\Portfolio\index.html" -Raw -Encoding utf8
 "articles .project : " + ([regex]::Matches($new, 'class="project"')).Count + " (attendu 5)"
 "tags .tag         : " + ([regex]::Matches($new, 'class="tag"')).Count + " (attendu 28)"
 "encadres todo     : " + ([regex]::Matches($new, 'class="project__todo"')).Count + " (attendu 5)"
@@ -792,7 +802,7 @@ La règle est volontairement stricte : **`index.html` ne doit contenir aucun com
 - [ ] **Step 5 : Vérifier que les cinq titres sont bien présents et identiques**
 
 ```powershell
-$new = Get-Content "C:\Sites\Portfolio\index.html" -Raw
+$new = Get-Content "C:\Sites\Portfolio\index.html" -Raw -Encoding utf8
 $titres = @(
   "Panny's Kitchen — application Android de gestion culinaire",
   "Auto-formation Linux sur machine virtuelle",
@@ -941,7 +951,7 @@ Le `gap: 2px` combiné au `box-shadow: 0 0 0 1px` produit des filets de séparat
 - [ ] **Step 3 : Vérifier les comptes**
 
 ```powershell
-$new = Get-Content "C:\Sites\Portfolio\index.html" -Raw
+$new = Get-Content "C:\Sites\Portfolio\index.html" -Raw -Encoding utf8
 "groupes : " + ([regex]::Matches($new, 'class="skill-group"')).Count + " (attendu 4)"
 "items   : " + ([regex]::Matches($new, 'class="skill-group__item"')).Count + " (attendu 16)"
 ```
@@ -1148,7 +1158,7 @@ La règle `.interest-panel[hidden] { display: none; }` est **obligatoire** : san
 - [ ] **Step 4 : Vérifier la cohérence des identifiants**
 
 ```powershell
-$new = Get-Content "C:\Sites\Portfolio\index.html" -Raw
+$new = Get-Content "C:\Sites\Portfolio\index.html" -Raw -Encoding utf8
 $ctrl = [regex]::Matches($new, 'aria-controls="([^"]+)"') | ForEach-Object { $_.Groups[1].Value } | Sort-Object
 $ids  = [regex]::Matches($new, 'class="interest-panel" id="([^"]+)"') | ForEach-Object { $_.Groups[1].Value } | Sort-Object
 "boutons : $($ctrl.Count) / panneaux : $($ids.Count)"
@@ -1278,8 +1288,8 @@ Cette section surcharge `.section__eyebrow` et `.section__title` : sur fond somb
 - [ ] **Step 3 : Vérifier que tous les liens de la source sont présents**
 
 ```powershell
-$src = Get-Content "C:\Sites\Portfolio\_source\Portfolio Valdon Sadiki.dc.html" -Raw
-$new = Get-Content "C:\Sites\Portfolio\index.html" -Raw
+$src = Get-Content "C:\Sites\Portfolio\_source\Portfolio Valdon Sadiki.dc.html" -Raw -Encoding utf8
+$new = Get-Content "C:\Sites\Portfolio\index.html" -Raw -Encoding utf8
 $rx = 'href="(mailto:[^"]+|https?://[^"]+|#[^"]+)"'
 $a = [regex]::Matches($src, $rx) | ForEach-Object { $_.Groups[1].Value } | Sort-Object -Unique
 $b = [regex]::Matches($new, $rx) | ForEach-Object { $_.Groups[1].Value } | Sort-Object -Unique
@@ -1430,7 +1440,7 @@ C'est le second écart assumé avec l'artifact, après les `:hover` CSS. Le rend
 Aucun interpréteur JS n'est disponible en ligne de commande sur ce poste. Vérification structurelle :
 
 ```powershell
-$js = Get-Content "C:\Sites\Portfolio\assets\main.js" -Raw
+$js = Get-Content "C:\Sites\Portfolio\assets\main.js" -Raw -Encoding utf8
 "fonctions : " + ([regex]::Matches($js, '(?m)^function \w+')).Count + " (attendu 3)"
 "DOMContentLoaded : " + ([regex]::Matches($js, 'DOMContentLoaded')).Count + " (attendu 1)"
 $open = ([regex]::Matches($js, '\{')).Count; $close = ([regex]::Matches($js, '\}')).Count
@@ -1476,8 +1486,8 @@ Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>
 
 ```powershell
 $root = "C:\Sites\Portfolio"
-$src  = Get-Content "$root\_source\Portfolio Valdon Sadiki.dc.html" -Raw
-$new  = (Get-Content "$root\index.html" -Raw) + (Get-Content "$root\assets\styles.css" -Raw) + (Get-Content "$root\assets\main.js" -Raw)
+$src  = Get-Content "$root\_source\Portfolio Valdon Sadiki.dc.html" -Raw -Encoding utf8
+$new  = (Get-Content "$root\index.html" -Raw -Encoding utf8) + (Get-Content "$root\assets\styles.css" -Raw -Encoding utf8) + (Get-Content "$root\assets\main.js" -Raw -Encoding utf8)
 
 "=== 1. Syntaxe DC residuelle ==="
 $dc = Select-String -Path "$root\index.html","$root\assets\styles.css","$root\assets\main.js" -Pattern 'sc-for|sc-if|x-dc|style-hover|style-active|\{\{|DCLogic'
@@ -1498,12 +1508,16 @@ $m2 = $a2 | Where-Object { $b2 -notcontains $_ }
 if ($m2) { "ECHEC : rgba perdus -> $($m2 -join ' | ')" } else { "OK : $($a2.Count) valeurs rgba toutes presentes" }
 
 "=== 4. Polices ==="
+# L'URL Google Fonts encode les espaces en '+' ('IBM+Plex+Sans'). On normalise
+# avant de chercher, sinon toute police dont le nom comporte un espace et qui
+# n'apparait QUE dans le <link> ressort en faux negatif.
+$newNorm = $new -replace '\+', ' '
 foreach ($f in @('Cormorant Garamond','Karla','IBM Plex Sans','IBM Plex Mono','Spectral')) {
-  "{0,-6} {1}" -f $new.Contains($f), $f
+  "{0,-6} {1}" -f $newNorm.Contains($f), $f
 }
 
 "=== 5. Chemins absolus interdits ==="
-$abs = [regex]::Matches((Get-Content "$root\index.html" -Raw), '(src|href)="(/|[A-Za-z]:\\)')
+$abs = [regex]::Matches((Get-Content "$root\index.html" -Raw -Encoding utf8), '(src|href)="(/|[A-Za-z]:\\)')
 if ($abs.Count -gt 0) { "ECHEC : $($abs.Count) chemin(s) absolu(s)" } else { "OK : chemins relatifs uniquement" }
 
 "=== 6. Fichier .nojekyll interdit ==="

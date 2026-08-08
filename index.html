@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Valdon Sadiki — BTS SIO SISR, alternance technicien systèmes et réseaux</title>
+<meta name="description" content="Portfolio de Valdon Sadiki, étudiant en BTS SIO SISR à Strasbourg, à la recherche d'une alternance de technicien systèmes et réseaux.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Karla:wght@400;500;600;700&family=Spectral:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="assets/styles.css">
+<script src="assets/main.js" defer onerror="document.documentElement.classList.remove('js')"></script>
+</head>
+<body>
+
+<header class="site-nav">
+  <a class="site-nav__brand" href="#a-top">VALDON SADIKI</a>
+  <nav class="site-nav__links">
+    <a class="site-nav__link" href="#a-propos">À propos</a>
+    <a class="site-nav__link" href="#a-projets">Projets</a>
+    <a class="site-nav__link" href="#a-competences">Compétences</a>
+    <a class="site-nav__link" href="#a-contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero" id="a-top">
+    <div class="hero__deco hero__deco--stripes" data-parallax="0.18"></div>
+    <div class="hero__deco hero__deco--glow" data-parallax="-0.1"></div>
+    <div class="hero__inner">
+      <p class="hero__eyebrow" data-reveal><span class="hero__rule"></span><span>BTS SIO SISR · Strasbourg</span></p>
+      <h1 class="hero__title" data-reveal>Valdon Sadiki</h1>
+      <p class="hero__lead" data-reveal>Une idée, l'apprendre, la réaliser : j'ai appris seul, maintenant je veux apprendre en équipe. Je cherche une alternance de technicien systèmes et réseaux.</p>
+      <div class="hero__actions" data-reveal>
+        <a class="btn btn--solid" href="media/cv.pdf" download>Télécharger mon CV</a>
+        <a class="btn btn--outline" href="mailto:sadiki.valdon1@gmail.com">Me contacter</a>
+      </div>
+      <p class="hero__meta" data-reveal>
+        <span class="hero__meta-item">Rythme · 2 j école / 3 j entreprise</span>
+        <span class="hero__meta-item">Disponible · dès maintenant</span>
+        <span class="hero__meta-item">Secteur · Strasbourg et alentours</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--light" id="a-propos">
+    <div class="about">
+      <div class="about__col" data-reveal>
+        <p class="section__eyebrow">01 — À propos</p>
+        <h2 class="section__title">Chercher la réponse avant de la demander</h2>
+        <img class="about__photo" src="media/photo-pro.jpg" alt="Valdon Sadiki" width="320" height="400">
+      </div>
+      <div class="about__text" data-reveal>
+        <p class="about__para">Petit, j'ai relié le ventilateur d'un vieux PC à un câble USB cassé pour me fabriquer un ventilateur personnel. Personne ne m'avait montré comment faire : j'ai démonté, essayé, recommencé. C'est resté ma méthode.</p>
+        <p class="about__para">Les jeux et les machines m'ont accroché très tôt, et chaque fois que j'avais une question sur ces sujets, j'ai dû aller chercher la réponse moi-même. Tout ce que je sais aujourd'hui, je l'ai appris seul — et je suis fier du chemin parcouru.</p>
+        <p class="about__para">Les idées ont changé, le processus est le même : avoir une idée, apprendre ce qu'il faut, la réaliser. Je suis plutôt réservé au premier contact, puis très présent une fois dans l'équipe : j'aime dépanner les autres, avancer avec des consignes claires et rendre un travail dont je peux expliquer chaque étape.</p>
+        <p class="about__para">En BTS SIO SISR, je vise l'infrastructure : postes, serveurs, réseau, ce qui tient debout derrière les usages. Une alternance de technicien systèmes et réseaux est la suite logique.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="a-projets">
+    <div class="section__head projects__head" data-reveal>
+      <p class="section__eyebrow">02 — Projets</p>
+      <h2 class="section__title">Ce que j'ai construit, et ce que j'en ai tiré</h2>
+    </div>
+    <div class="projects">
+
+      <article class="project" data-reveal>
+        <div class="project__side">
+          <span class="project__num">Projet 01</span>
+          <h3 class="project__title">Panny's Kitchen — application Android de gestion culinaire</h3>
+          <p class="project__kicker">Recettes, stock réel et liste de courses enfin reliés.</p>
+          <div class="project__tools">
+            <span class="tag">Kotlin</span>
+            <span class="tag">Jetpack Compose</span>
+            <span class="tag">MVVM / Clean Archi</span>
+            <span class="tag">Room</span>
+            <span class="tag">Firebase Firestore</span>
+            <span class="tag">ML Kit</span>
+            <span class="tag">CameraX</span>
+            <span class="tag">OpenFoodFacts</span>
+          </div>
+        </div>
+        <div class="project__body">
+          <div class="field">
+            <span class="field__label">Contexte</span>
+            <p class="field__text">Ma femme cherchait une application capable de gérer les stocks d'ingrédients de la maison et n'a rien trouvé qui corresponde à sa façon de faire. Les applications existantes traitent les recettes, le stock et les courses séparément — je les ai reliés.</p>
+          </div>
+          <div class="field">
+            <span class="field__label">Mon rôle</span>
+            <p class="field__text">Développement complet en Android natif. On choisit les repas à cuisiner, l'app calcule les quantités (avec conversion d'unités), déduit ce qui est déjà en stock et ne génère que le manquant, arrondi au conditionnement réel du magasin. À côté : import de recette depuis une URL, OCR d'une recette papier, scan de code-barres enrichi via OpenFoodFacts, scan de ticket de caisse, suggestions de plats selon les dates de péremption, planning de repas et liste de courses triée par rayon. Un foyer se rejoint par code d'invitation, tout est synchronisé en temps réel entre ses membres.</p>
+          </div>
+          <div class="field">
+            <span class="field__label">Résultat</span>
+            <p class="field__text">Une application utilisée au quotidien à la maison. Techniquement, ce dont je suis le plus fier : le moteur de conversion d'unités et de rapprochement flou des ingrédients (accents, pluriels, « 2 c. à soupe d'huile » face au bidon d'1 L en stock), une synchronisation offline-first où Room reste la source de vérité et Firestore ne propage que les deltas, et 9 versions de migrations Room écrites à la main sans jamais détruire de données.</p>
+          </div>
+          <p class="project__todo">à compléter : captures d’écran de l’app, lien du dépôt GitHub</p>
+        </div>
+      </article>
+
+      <article class="project" data-reveal>
+        <div class="project__side">
+          <span class="project__num">Projet 02</span>
+          <h3 class="project__title">Auto-formation Linux sur machine virtuelle</h3>
+          <p class="project__kicker">Préparer ma rentrée en SISR avec un labo à moi.</p>
+          <div class="project__tools">
+            <span class="tag">VirtualBox / VM</span>
+            <span class="tag">Linux</span>
+            <span class="tag">Bash</span>
+            <span class="tag">SSH</span>
+            <span class="tag">DNS</span>
+          </div>
+        </div>
+        <div class="project__body">
+          <div class="field">
+            <span class="field__label">Contexte</span>
+            <p class="field__text">Avant d'entrer en BTS, je voulais arriver avec des bases réelles plutôt qu'un cours lu. J'ai monté un environnement virtualisé pour installer Linux et casser des choses sans risque.</p>
+          </div>
+          <div class="field">
+            <span class="field__label">Mon rôle</span>
+            <p class="field__text">Installation de la VM et du système, découverte de l'arborescence, des droits, des services, des commandes de base, puis premières connexions SSH et configuration DNS.</p>
+          </div>
+          <div class="field">
+            <span class="field__label">Résultat</span>
+            <p class="field__text">Un labo personnel que je continue d'utiliser : chaque notion vue en cours, je la rejoue dessus avant de la considérer comprise.</p>
+          </div>
+          <p class="project__todo">à compléter : distribution exacte, services installés, une capture de ta VM</p>
+        </div>
+      </article>
+
+      <article class="project" data-reveal>
+        <div class="project__side">
+          <span class="project__num">Projet 03</span>
+          <h3 class="project__title">SDK Lavage Pro — site vitrine et back-office de devis</h3>
+          <p class="project__kicker">Ma micro-entreprise, de la création au traitement des demandes.</p>
+          <div class="project__tools">
+            <span class="tag">PHP 8 / PDO</span>
+            <span class="tag">SQLite</span>
+            <span class="tag">JavaScript vanilla</span>
+            <span class="tag">CSS (BEM)</span>
+            <span class="tag">Apache / LAMP</span>
+            <span class="tag">SSH</span>
+            <span class="tag">Google Places API</span>
+          </div>
+        </div>
+        <div class="project__body">
+          <div class="field">
+            <span class="field__label">Contexte</span>
+            <p class="field__text">J'ai créé ma micro-entreprise de nettoyage haute pression à Strasbourg : démarches administratives, identité visuelle, flyers, et toute la présence en ligne. Il me fallait surtout un moyen de recevoir et traiter les demandes de devis sans y passer mes soirées.</p>
+          </div>
+          <div class="field">
+            <span class="field__label">Mon rôle</span>
+            <p class="field__text">Développement complet du site et de sa chaîne de traitement, sans framework ni build : le visiteur remplit un formulaire de devis avec photos de son chantier, la demande est enregistrée en base et notifiée par e-mail, puis je construis le devis ligne par ligne depuis un back-office privé (calcul automatique des totaux et de l'acompte, numérotation DEV-2026-0042, suivi de statut) et je l'envoie au client en e-mail HTML mis en page. Site bilingue français / allemand pour la zone transfrontalière, avec un système d'i18n fait main d'environ 700 clés. Côté sécurité : jetons CSRF à usage unique, honeypot, vérification du type MIME réel des fichiers envoyés, sessions expirantes et mots de passe hachés.</p>
+          </div>
+          <div class="field">
+            <span class="field__label">Résultat</span>
+            <p class="field__text">Une activité qui tourne avec ses vrais clients et un tunnel de devis autonome de bout en bout. J'y ai aussi construit un design system CSS maison, intégré les avis Google avec dégradation gracieuse et cache 24 h, un balisage JSON-LD LocalBusiness complet et une bannière de consentement RGPD qui conditionne réellement le chargement d'Analytics.</p>
+          </div>
+          <p class="project__todo">à compléter : URL du site, période d’activité, volume de devis traités</p>
+        </div>
+      </article>
+
+      <article class="project" data-reveal>
+        <div class="project__side">
+          <span class="project__num">Projet 04</span>
+          <h3 class="project__title">FL Perf — site vitrine pour un coach sportif</h3>
+          <p class="project__kicker">La preuve que la préparation vaut plus que le code.</p>
+          <div class="project__tools">
+            <span class="tag">HTML / CSS</span>
+            <span class="tag">Visual Studio</span>
+            <span class="tag">Hébergement</span>
+            <span class="tag">Recueil du besoin</span>
+          </div>
+        </div>
+        <div class="project__body">
+          <div class="field">
+            <span class="field__label">Contexte</span>
+            <p class="field__text">Un coach sportif voulait un site mais n'avait aucune idée de ce qu'il attendait. On a d'abord avancé à l'aveugle, sans jamais déclencher le "waw".</p>
+          </div>
+          <div class="field">
+            <span class="field__label">Mon rôle</span>
+            <p class="field__text">J'ai enchaîné les maquettes en écoutant chaque indice de ses réponses pour reconstituer une envie qu'il ne savait pas formuler, jusqu'à la bonne version.</p>
+          </div>
+          <div class="field">
+            <span class="field__label">Résultat</span>
+            <p class="field__text">Le site livré, validé au ton de sa voix — et pour moi une méthode : cadrer le besoin avant de produire, poser des questions plutôt que supposer.</p>
+          </div>
+          <p class="project__todo">à compléter : URL du site, durée du projet, nombre de versions</p>
+        </div>
+      </article>
+
+      <article class="project" data-reveal>
+        <div class="project__side">
+          <span class="project__num">Projet 05</span>
+          <h3 class="project__title">Mémoire persistante pour mes IA (Obsidian)</h3>
+          <p class="project__kicker">Documenter une fois, ne plus jamais réexpliquer.</p>
+          <div class="project__tools">
+            <span class="tag">Obsidian</span>
+            <span class="tag">Markdown</span>
+            <span class="tag">Claude Code</span>
+            <span class="tag">Documentation</span>
+          </div>
+        </div>
+        <div class="project__body">
+          <div class="field">
+            <span class="field__label">Contexte</span>
+            <p class="field__text">Je repartais de zéro à chaque session d'IA : contexte réexpliqué, réponses hors-sujet, temps perdu.</p>
+          </div>
+          <div class="field">
+            <span class="field__label">Mon rôle</span>
+            <p class="field__text">J'ai structuré dans Obsidian une base de connaissances persistante — conventions, contexte projet, décisions — branchée sur mes outils d'IA.</p>
+          </div>
+          <div class="field">
+            <span class="field__label">Résultat</span>
+            <p class="field__text">Des réponses cadrées dès la première demande et beaucoup moins d'allers-retours. C'est aussi mon réflexe de documentation, utile en support et en exploitation.</p>
+          </div>
+          <p class="project__todo">à compléter : organisation de ton coffre, exemple concret de gain de temps</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="section section--light" id="a-competences">
+    <div class="section__head skills__head" data-reveal>
+      <p class="section__eyebrow">03 — Compétences &amp; outils</p>
+      <h2 class="section__title">Mes fondations</h2>
+    </div>
+    <div class="skills">
+
+      <div class="skill-group" data-reveal>
+        <span class="skill-group__label">Systèmes</span>
+        <div class="skill-group__items">
+          <span class="skill-group__item">Windows 10 / 11</span>
+          <span class="skill-group__item">Linux (bases)</span>
+          <span class="skill-group__item">Virtualisation — VM</span>
+          <span class="skill-group__item">Installation &amp; dépannage poste</span>
+        </div>
+      </div>
+
+      <div class="skill-group" data-reveal>
+        <span class="skill-group__label">Réseau</span>
+        <div class="skill-group__items">
+          <span class="skill-group__item">Configuration DNS</span>
+          <span class="skill-group__item">Connexion SSH</span>
+          <span class="skill-group__item">Adressage IP (bases)</span>
+          <span class="skill-group__item">Diagnostic connectivité</span>
+        </div>
+      </div>
+
+      <div class="skill-group" data-reveal>
+        <span class="skill-group__label">Outils</span>
+        <div class="skill-group__items">
+          <span class="skill-group__item">Visual Studio</span>
+          <span class="skill-group__item">Claude Code</span>
+          <span class="skill-group__item">Obsidian</span>
+          <span class="skill-group__item">Hébergement web &amp; domaine</span>
+        </div>
+      </div>
+
+      <div class="skill-group" data-reveal>
+        <span class="skill-group__label">Méthode</span>
+        <div class="skill-group__items">
+          <span class="skill-group__item">Autoformation</span>
+          <span class="skill-group__item">Documentation écrite</span>
+          <span class="skill-group__item">Recueil du besoin</span>
+          <span class="skill-group__item">Travail en équipe</span>
+        </div>
+      </div>
+
+    </div>
+    <p class="skills__note" data-reveal>En cours d'apprentissage : Windows Server et Active Directory, VLAN et routage, supervision. J'avance dessus en autonomie, sur ma VM, et j'attends l'alternance pour les pratiquer sur du réel.</p>
+  </section>
+
+  <section class="section section--alt" id="a-interets">
+    <div class="section__head interests__head" data-reveal>
+      <p class="section__eyebrow">04 — Centres d'intérêt</p>
+      <h2 class="section__title">En dehors des machines</h2>
+    </div>
+    <div class="interests" data-interests data-reveal>
+      <div class="interests__list">
+        <button class="interest-btn" type="button" aria-controls="interet-0">Jeux vidéo</button>
+        <button class="interest-btn" type="button" aria-controls="interet-1">Musique</button>
+        <button class="interest-btn" type="button" aria-controls="interet-2">Mythologies</button>
+        <button class="interest-btn" type="button" aria-controls="interet-3">Échecs</button>
+        <button class="interest-btn" type="button" aria-controls="interet-4">Volley</button>
+        <button class="interest-btn" type="button" aria-controls="interet-5">Bricolage</button>
+        <button class="interest-btn" type="button" aria-controls="interet-6">Jeux de société</button>
+      </div>
+
+      <div class="interest-panel" id="interet-0">
+        <span class="interest-panel__label">Jeux vidéo</span>
+        <p class="interest-panel__text">Le point de départ de tout : c'est en voulant faire tourner mes jeux correctement que j'ai commencé à démonter, remonter et comprendre une machine. Aujourd'hui j'y retrouve la même logique qu'au travail — observer, tester, ajuster.</p>
+      </div>
+      <div class="interest-panel" id="interet-1">
+        <span class="interest-panel__label">Musique</span>
+        <p class="interest-panel__text">Elle m'accompagne dès que je bricole ou que je passe des heures sur une configuration. C'est ce qui me met dans un état de concentration où je peux avancer longtemps sans lâcher un problème.</p>
+      </div>
+      <div class="interest-panel" id="interet-2">
+        <span class="interest-panel__label">Mythologies</span>
+        <p class="interest-panel__text">Grecque, nordique : je lis ces récits depuis l'enfance pour leurs figures et leurs symboles. L'ambiance de ce site vient directement de là.</p>
+      </div>
+      <div class="interest-panel" id="interet-3">
+        <span class="interest-panel__label">Échecs</span>
+        <p class="interest-panel__text">Ce qui me plaît, c'est de devoir anticiper les conséquences d'un coup avant de le jouer. En infrastructure, c'est exactement le réflexe utile : mesurer l'impact d'une modification avant de l'appliquer.</p>
+      </div>
+      <div class="interest-panel" id="interet-4">
+        <span class="interest-panel__label">Volley</span>
+        <p class="interest-panel__text">Le sport qui m'a le plus appris sur le collectif : personne ne marque seul, et une équipe qui communique bat une équipe de bons joueurs silencieux. J'y ai pris le goût de travailler à plusieurs.</p>
+      </div>
+      <div class="interest-panel" id="interet-5">
+        <span class="interest-panel__label">Bricolage</span>
+        <p class="interest-panel__text">Réparer plutôt que remplacer. Ça a commencé avec un ventilateur de PC branché sur un câble USB cassé, et ça continue avec tout ce qui me passe entre les mains.</p>
+      </div>
+      <div class="interest-panel" id="interet-6">
+        <span class="interest-panel__label">Jeux de société</span>
+        <p class="interest-panel__text">Une bonne excuse pour réunir du monde, expliquer des règles clairement et voir chacun réfléchir différemment. J'aime le moment où tout le monde a compris et que la partie démarre.</p>
+      </div>
+    </div>
+    <p class="interests__hint" data-reveal>Clique sur un centre d'intérêt pour en savoir plus.</p>
+  </section>
+
+  <section class="section contact" id="a-contact">
+    <div class="contact__deco" data-parallax="0.14"></div>
+    <div class="contact__inner">
+      <p class="section__eyebrow contact__eyebrow" data-reveal>05 — Contact</p>
+      <h2 class="section__title contact__title" data-reveal>Je cherche une alternance de technicien systèmes et réseaux, dès maintenant.</h2>
+      <div class="contact__links" data-reveal>
+        <a class="contact-link" href="mailto:sadiki.valdon1@gmail.com">
+          <span class="contact-link__label">Email</span>
+          <span class="contact-link__value">sadiki.valdon1@gmail.com</span>
+        </a>
+        <a class="contact-link" href="https://www.linkedin.com/in/valdon-sadiki/" target="_blank" rel="noopener">
+          <span class="contact-link__label">LinkedIn</span>
+          <span class="contact-link__value">/in/valdon-sadiki</span>
+        </a>
+        <a class="contact-link" href="https://github.com/IRaaa21" target="_blank" rel="noopener">
+          <span class="contact-link__label">GitHub</span>
+          <span class="contact-link__value">IRaaa21</span>
+        </a>
+      </div>
+      <a class="btn btn--gold" href="media/cv.pdf" download data-reveal>Télécharger mon CV</a>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>
