@@ -16,7 +16,10 @@ function setupInterests(root) {
       btn.setAttribute('aria-expanded', 'false');
       btn.classList.remove('interest-btn--open');
       var panel = document.getElementById(btn.getAttribute('aria-controls'));
-      if (panel) panel.hidden = true;
+      if (panel) {
+        panel.hidden = true;
+        panel.classList.remove('interest-panel--open');
+      }
     });
   }
 
@@ -30,7 +33,10 @@ function setupInterests(root) {
       btn.setAttribute('aria-expanded', 'true');
       btn.classList.add('interest-btn--open');
       var panel = document.getElementById(btn.getAttribute('aria-controls'));
-      if (panel) panel.hidden = false;
+      if (panel) {
+        panel.hidden = false;
+        panel.classList.add('interest-panel--open');
+      }
     });
   });
 }

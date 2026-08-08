@@ -385,10 +385,10 @@ a { color: inherit; text-decoration: none; }
 }
 /* Sans JavaScript, aucune classe `js` : les 7 panneaux restent visibles et
    le contenu est lisible. Avec JavaScript, la classe est posée dans le
-   <head> avant le premier rendu, donc les panneaux sont masqués dès la
-   première peinture — pas de clignotement. */
+   <head> avant le premier rendu : les panneaux sont masqués dès la première
+   peinture, et seul un panneau explicitement marqué ouvert s'affiche. */
 .js .interest-panel { display: none; }
-.js .interest-panel:not([hidden]) { display: block; }
+.js .interest-panel--open { display: block; }
 .interest-panel[hidden] { display: none; }
 .interest-panel__label {
   display: block;
