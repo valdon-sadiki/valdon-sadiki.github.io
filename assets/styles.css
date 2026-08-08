@@ -505,6 +505,18 @@ body.lightbox-open { overflow: hidden; }
   color: var(--ink-body);
   text-wrap: pretty;
 }
+/* Lien dans le fil du texte : la regle globale `a { color: inherit }` le
+   rendrait indistinguable de la phrase qui l'entoure. */
+.interest-panel__link {
+  border-bottom: 1px solid rgba(154, 123, 51, 0.45);
+  color: var(--gold-deep);
+  transition: color 200ms ease, border-bottom-color 200ms ease;
+}
+.interest-panel__link:hover,
+.interest-panel__link:focus-visible {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
 .interests__hint {
   margin: 26px 0 0;
   max-width: 620px;
