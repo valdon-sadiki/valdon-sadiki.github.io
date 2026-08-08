@@ -110,9 +110,78 @@ function setupParallax() {
   apply();
 }
 
+/**
+ * Visionneuse pour les captures de projet.
+ * Contrat HTML : des liens [data-lightbox] pointant vers l'image pleine taille et
+ * contenant la vignette. Sans JavaScript, ces liens ouvrent simplement l'image :
+ * la galerie reste utilisable, rien n'est masqué par le script.
+ */
+function setupLightbox() {
+  var links = Array.prototype.slice.call(document.querySelectorAll('[data-lightbox]'));
+  if (!links.length) return;
+
+  var overlay = document.createElement('div');
+  overlay.className = 'lightbox';
+  overlay.hidden = true;
+  overlay.setAttribute('role', 'dialog');
+  overlay.setAttribute('aria-modal', 'true');
+
+  var close = document.createElement('button');
+  close.type = 'button';
+  close.className = 'lightbox__close';
+  close.setAttribute('aria-label', 'Fermer');
+  close.innerHTML = '&times;';
+
+  var img = document.createElement('img');
+  img.className = 'lightbox__image';
+  img.alt = '';
+
+  overlay.appendChild(close);
+  overlay.appendChild(img);
+  document.body.appendChild(overlay);
+
+  var lastFocused = null;
+
+  function show(href, alt) {
+    lastFocused = document.activeElement;
+    img.setAttribute('src', href);
+    img.alt = alt;
+    overlay.hidden = false;
+    document.body.classList.add('lightbox-open');
+    close.focus();
+  }
+
+  function hide() {
+    overlay.hidden = true;
+    img.removeAttribute('src');
+    img.alt = '';
+    document.body.classList.remove('lightbox-open');
+    if (lastFocused && lastFocused.focus) lastFocused.focus();
+  }
+
+  links.forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      var thumb = link.querySelector('img');
+      show(link.getAttribute('href'), thumb ? thumb.alt : '');
+    });
+  });
+
+  close.addEventListener('click', hide);
+
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) hide();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (!overlay.hidden && (e.key === 'Escape' || e.key === 'Esc')) hide();
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   var interests = document.querySelector('[data-interests]');
   if (interests) setupInterests(interests);
   setupReveal();
   setupParallax();
+  setupLightbox();
 });

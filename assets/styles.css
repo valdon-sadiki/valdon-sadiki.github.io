@@ -308,6 +308,97 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.5;
   color: var(--ink-muted);
 }
+.project__link {
+  align-self: flex-start;
+  padding-bottom: 2px;
+  border-bottom: 1px solid rgba(154, 123, 51, 0.4);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--gold-deep);
+  transition: color 200ms ease, border-bottom-color 200ms ease;
+}
+.project__link:hover,
+.project__link:focus-visible {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+/* ---------- Captures de projet ---------- */
+.project__shots {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 4px;
+}
+.shot {
+  display: block;
+  border: 1px solid rgba(35, 32, 27, 0.14);
+  background: var(--bg-alt);
+  transition: border-color 200ms ease, transform 200ms ease;
+}
+.shot img {
+  display: block;
+  width: auto;
+  height: 320px;
+  max-width: 100%;
+}
+.shot--wide img {
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+}
+.shot:hover,
+.shot:focus-visible {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+@media (max-width: 560px) {
+  .shot img { height: 260px; }
+}
+
+/* ---------- Visionneuse ---------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background: rgba(35, 32, 27, 0.94);
+  animation: omFadeUp 240ms cubic-bezier(.16, .8, .28, 1) both;
+}
+.lightbox[hidden] { display: none; }
+.lightbox__image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border: 1px solid rgba(240, 235, 223, 0.18);
+}
+.lightbox__close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  background: none;
+  border: 1px solid rgba(240, 235, 223, 0.3);
+  border-radius: 2px;
+  color: var(--on-dark);
+  font-family: var(--font-ui);
+  font-size: 26px;
+  line-height: 1;
+  transition: border-color 200ms ease, color 200ms ease;
+}
+.lightbox__close:hover,
+.lightbox__close:focus-visible {
+  border-color: var(--gold-light);
+  color: var(--gold-light);
+}
+body.lightbox-open { overflow: hidden; }
 
 /* ---------- Compétences ---------- */
 .skills__head { margin-bottom: 50px; }
