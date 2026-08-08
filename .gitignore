@@ -18,3 +18,9 @@ $RECYCLE.BIN/
 
 # Espace de travail des agents (ledger, briefs, rapports de revue)
 .superpowers/
+
+# Capture Obsidian ecartee : elle expose des noms de clients et un dossier
+# 80_Informations_sensibles. Le depot est public, et l'historique garde tout —
+# ne jamais la versionner. Le GIF publie (media/obsidian-graph.gif) est le
+# remplacant controle image par image.
+obsidian.png
