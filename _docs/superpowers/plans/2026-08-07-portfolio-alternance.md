@@ -8,7 +8,7 @@
 
 **Tech Stack :** HTML5, CSS3 (custom properties, BEM), JavaScript ES6 vanilla. Google Fonts. Aucune dépendance installée.
 
-**Spec de référence :** [`docs/superpowers/specs/2026-08-07-portfolio-alternance-design.md`](../specs/2026-08-07-portfolio-alternance-design.md)
+**Spec de référence :** [`_docs/superpowers/specs/2026-08-07-portfolio-alternance-design.md`](../specs/2026-08-07-portfolio-alternance-design.md)
 
 ---
 

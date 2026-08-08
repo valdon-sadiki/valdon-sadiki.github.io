@@ -75,7 +75,7 @@ C:\Sites\Portfolio\
 │     ├─ cv-1786031691808.pdf
 │     ├─ Photo Pro.png
 │     └─ Portfolio.txt   fiches projets détaillées (source de contenu)
-├─ docs/superpowers/specs/
+├─ _docs/superpowers/specs/
 ├─ .gitignore
 └─ README.md
 ```
@@ -120,9 +120,20 @@ Les valeurs de style sont reprises à l'identique, sans réinterprétation :
   IBM Plex Mono — `preconnect` et `link` conservés à l'identique.
 - Keyframe `omFadeUp`, `::selection`, `scroll-behavior: smooth` conservés.
 
-**Écart assumé et unique :** les `style-hover` deviennent des `:hover` CSS réels.
-Le comportement devient plus correct qu'aujourd'hui (le survol fonctionnera aussi
-au clavier via `:focus-visible`). C'est le seul changement de comportement voulu.
+**Écarts assumés :**
+
+- Les `style-hover` deviennent des `:hover` CSS réels. Le comportement devient
+  plus correct qu'aujourd'hui (le survol fonctionnera aussi au clavier via
+  `:focus-visible`).
+- Un bloc `@media (prefers-reduced-motion: reduce)` a été ajouté ; l'artifact
+  n'en a aucun. Accessibilité, aucun changement de rendu par défaut.
+- `.btn`, `.project` et `.contact-link` portent des `transition` de `200ms`
+  (background/couleur/bordure selon les cas) que l'artifact n'a pas — il
+  applique ses survols instantanément via `style-hover`. Ajoutées en
+  accompagnement de la conversion `style-hover` → `:hover` ci-dessus, pour que
+  le nouvel état `:hover` ne s'affiche pas de façon abrupte. La transition de
+  `260ms` sur `.interest-btn`, elle, existe déjà dans l'artifact et est
+  reproduite à l'identique, sans changement.
 
 ### Vérification
 
