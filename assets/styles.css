@@ -344,6 +344,13 @@ a { color: inherit; text-decoration: none; }
   max-width: 560px;
   height: auto;
 }
+/* Captures en paysage : contraintes en largeur plutôt qu'en hauteur, pour que
+   deux d'entre elles tiennent côte à côte dans la colonne de gauche. */
+.shot--land img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
 .shot:hover,
 .shot:focus-visible {
   border-color: var(--gold);

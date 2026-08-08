@@ -50,7 +50,7 @@ vit désormais ici, et nulle part sur le site public.
 | Projet | Ce qui manque |
 |---|---|
 | 01 Panny's Kitchen | lien du dépôt GitHub |
-| 02 Auto-formation Linux | distribution exacte, services installés, une capture de la VM |
+| 02 Auto-formation Linux | services installés — une capture montrant du travail réel (session SSH, `systemctl status`, résolution DNS) vaudrait mieux qu'un bureau vierge |
 | 03 Mémoire persistante | un exemple chiffré de gain de temps |
 | 04 SDK Lavage Pro | période d'activité, volume de devis traités |
 | 05 FL Perf | durée du projet, nombre de versions |
