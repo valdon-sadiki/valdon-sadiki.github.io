@@ -339,16 +339,21 @@ a { color: inherit; text-decoration: none; }
   height: 320px;
   max-width: 100%;
 }
-.shot--wide img {
+.shot.shot--wide img {
   width: 100%;
   max-width: 560px;
   height: auto;
 }
-/* Captures en paysage : contraintes en largeur plutôt qu'en hauteur, pour que
-   deux d'entre elles tiennent côte à côte dans la colonne de gauche. */
-.shot--land img {
-  width: 100%;
+/* Captures en paysage : elles se partagent la largeur de la colonne au lieu
+   d'imposer chacune une taille fixe, sinon deux d'entre elles ne tiennent pas
+   côte à côte et s'empilent, ce qui étire la carte à la verticale. La base de
+   200px laisse le duo tenir sur une ligne dès que la colonne fait ~420px. */
+.shot--land {
+  flex: 1 1 200px;
   max-width: 400px;
+}
+.shot.shot--land img {
+  width: 100%;
   height: auto;
 }
 .shot:hover,
