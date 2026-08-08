@@ -41,10 +41,25 @@ vide) et GitHub Pages n'est pas encore activé. Étapes restantes, dans l'ordre 
    dossier racine.
 4. Chaque `git push` ultérieur vers `main` republie automatiquement le site.
 
+## Contenu encore à fournir
+
+Ces informations manquaient et étaient jusqu'ici signalées par des encadrés
+« à compléter » affichés sur la page. Les encadrés ont été retirés : la liste
+vit désormais ici, et nulle part sur le site public.
+
+| Projet | Ce qui manque |
+|---|---|
+| 01 Panny's Kitchen | lien du dépôt GitHub |
+| 02 Auto-formation Linux | distribution exacte, services installés, une capture de la VM |
+| 03 Mémoire persistante | un exemple chiffré de gain de temps |
+| 04 SDK Lavage Pro | période d'activité, volume de devis traités |
+| 05 FL Perf | durée du projet, nombre de versions |
+
+Le projet 02 est le seul des cinq sans illustration ni lien, alors que c'est le
+plus proche de la cible SISR — c'est celui qui gagnerait le plus à être étoffé.
+
 ## À faire avant publication
 
-- [ ] Remplir ou retirer les encadrés « à compléter » des 5 projets — ils sont
-      visibles publiquement en l'état.
 - [ ] Décider si `media/cv.pdf` doit être public : il contient des données
       personnelles (adresse, téléphone). Deux copies identiques sont suivies par
       git — `media/cv.pdf` et `_source/uploads/cv-1786031691808.pdf` — les deux
