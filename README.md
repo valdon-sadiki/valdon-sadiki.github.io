@@ -30,16 +30,18 @@ bloc `<article class="project">` et à en remplacer le contenu.
 
 ## Déploiement
 
-Pas encore en ligne : aucun dépôt distant n'est configuré (`git remote -v` est
-vide) et GitHub Pages n'est pas encore activé. Étapes restantes, dans l'ordre :
+En ligne sur **https://valdon-sadiki.github.io/**, via GitHub Pages depuis la
+branche `main`, dossier racine. Chaque `git push` vers `main` republie le site
+automatiquement, en une à deux minutes.
 
-1. Lever les deux verrous de la section suivante.
-2. Créer un dépôt distant sur GitHub et y pousser cette branche (le dépôt sera
-   nécessairement **public** — GitHub Pages gratuit ne fonctionne pas sur un
-   dépôt privé).
-3. Dans les paramètres du dépôt, activer GitHub Pages sur la branche `main`,
-   dossier racine.
-4. Chaque `git push` ultérieur vers `main` republie automatiquement le site.
+Le dépôt est `valdon-sadiki/valdon-sadiki.github.io`. Pour un site utilisateur,
+le nom du dépôt doit être exactement `<pseudo>.github.io` : renommer le compte
+impose de renommer le dépôt dans la foulée, sinon Pages bascule le site en
+« page de projet » servie sous un sous-chemin.
+
+Le dépôt est **public** — GitHub Pages gratuit ne fonctionne pas sur un dépôt
+privé. Tout fichier suivi par git est donc lisible sur github.com, y compris
+ceux que Jekyll exclut du site publié (voir « À faire avant publication »).
 
 ## Contenu encore à fournir
 
