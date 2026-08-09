@@ -62,6 +62,26 @@ Trois demandes ont été écartées le 8 août 2026, et ne sont donc pas à repr
 le lien du dépôt GitHub de Panny's Kitchen, la période d'activité et le volume de
 devis de SDK Lavage Pro, la durée et le nombre de versions de FL Perf.
 
+Les captures du projet 01 ont été remplacées le 9 août 2026 par celles de la
+version 3 de l'application, qui n'est plus un moteur de cuisine seul mais une
+application d'organisation familiale. Trois écrans sont retenus : l'accueil et
+ses huit espaces, le stock, la liste de courses par rayon. Les captures du
+calendrier et des tâches partagées ont été écartées le 9 août 2026, pour tenir
+sur une seule rangée de vignettes et parce que la grille de l'accueil montre
+déjà ces deux modules et leurs compteurs. Ne pas les reproposer. Les deux
+captures défilantes, accueil et courses, sont
+recadrées au format d'un écran de téléphone : sans cela leurs vignettes
+s'affichent en bandes bien plus étroites que les autres, la règle CSS fixant la
+hauteur et laissant la largeur suivre le ratio. Le bas de la capture Courses
+contenait des articles de test à ne pas publier, la coupe sous la section
+Boissons les écarte : ne pas remettre la capture entière.
+
+Le cadrage du texte a suivi le même jour. Le projet 01 s'annonçait comme une
+« application de gestion culinaire » ; il est désormais présenté comme une
+application de gestion du foyer, la cuisine restant le fil conducteur et
+l'origine du projet. La question est tranchée, inutile de revenir à un titre
+uniquement culinaire.
+
 Le projet 02 a longtemps été le moins parlant des cinq alors qu'il est le plus
 proche de la cible SISR : ses deux captures montraient seulement que la VM
 existait. Il montre désormais une session SSH ouverte depuis Windows, le service

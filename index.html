@@ -71,8 +71,8 @@
       <article class="project" data-reveal>
         <div class="project__side">
           <span class="project__num">Projet 01</span>
-          <h3 class="project__title">Panny's Kitchen, application Android de gestion culinaire</h3>
-          <p class="project__kicker">Recettes, stock réel et liste de courses enfin reliés.</p>
+          <h3 class="project__title">Panny's Kitchen, application Android de gestion du foyer</h3>
+          <p class="project__kicker">Le calendrier, les tâches, le stock et les courses d'une famille au même endroit.</p>
           <div class="project__tools">
             <span class="tag">Kotlin</span>
             <span class="tag">Jetpack Compose</span>
@@ -84,29 +84,29 @@
             <span class="tag">OpenFoodFacts</span>
           </div>
           <div class="project__shots">
-            <a class="shot" href="media/pannys-recettes.jpg" data-lightbox>
-              <img src="media/pannys-recettes-thumb.jpg" alt="Écran Recettes de Panny's Kitchen : barre de recherche, filtres par catégorie et par régime alimentaire, et une recette affichant ses portions, son nombre d'ingrédients, son temps de préparation et ses ingrédients manquants" width="300" height="650" loading="lazy">
+            <a class="shot" href="media/pannys-accueil.jpg" data-lightbox>
+              <img src="media/pannys-accueil-thumb.jpg" alt="Accueil de Panny's Kitchen : le résumé du jour du foyer (événements, tâches en attente, prochain anniversaire) puis la grille des huit espaces avec leurs compteurs, de Calendrier et Anniversaires à Recettes, Stock, Planifier et Cuisiner" width="300" height="639" loading="lazy">
             </a>
             <a class="shot" href="media/pannys-stock.jpg" data-lightbox>
               <img src="media/pannys-stock-thumb.jpg" alt="Écran Stock de Panny's Kitchen : les produits du foyer en grille, chacun avec son emoji et sa quantité, et des filtres par emplacement et par date de péremption" width="300" height="650" loading="lazy">
             </a>
-            <a class="shot" href="media/pannys-cuisiner.jpg" data-lightbox>
-              <img src="media/pannys-cuisiner-thumb.jpg" alt="Écran Aux fourneaux de Panny's Kitchen : une recette sélectionnée, un réglage du nombre de portions, et la liste des ingrédients manquants calculée à partir du stock" width="300" height="650" loading="lazy">
+            <a class="shot" href="media/pannys-courses.jpg" data-lightbox>
+              <img src="media/pannys-courses-thumb.jpg" alt="Écran Courses de Panny's Kitchen : la liste partagée triée par rayon de magasin (Fruits et légumes, Boulangerie, Épicerie, Boissons), chaque article portant son emoji et la quantité à acheter" width="300" height="681" loading="lazy">
             </a>
           </div>
         </div>
         <div class="project__body">
           <div class="field">
             <span class="field__label">Contexte</span>
-            <p class="field__text">Ma femme cherchait une application capable de gérer les stocks d'ingrédients de la maison et n'a rien trouvé qui corresponde à sa façon de faire. Les applications existantes traitent les recettes, le stock et les courses séparément. Je les ai reliés.</p>
+            <p class="field__text">Ma femme cherchait une application capable de gérer les stocks d'ingrédients de la maison et n'a rien trouvé qui corresponde à sa façon de faire. Les applications existantes traitent les recettes, le stock et les courses séparément. Je les ai reliés, puis le besoin s'est élargi au reste de la logistique de la maison : le calendrier, les tâches partagées, les anniversaires. Huit espaces aujourd'hui, une seule base de données synchronisée entre les membres du foyer.</p>
           </div>
           <div class="field">
             <span class="field__label">Mon rôle</span>
-            <p class="field__text">Développement complet en Android natif. On choisit les repas à cuisiner, l'app calcule les quantités (avec conversion d'unités), déduit ce qui est déjà en stock et ne génère que le manquant, arrondi au conditionnement réel du magasin. À côté : import de recette depuis une URL, OCR d'une recette papier, scan de code-barres enrichi via OpenFoodFacts, scan de ticket de caisse, suggestions de plats selon les dates de péremption, planning de repas et liste de courses triée par rayon. Un foyer se rejoint par code d'invitation, tout est synchronisé en temps réel entre ses membres.</p>
+            <p class="field__text">Développement complet en Android natif, des huit modules à la synchronisation. Côté organisation : agenda du foyer avec des événements assignés à plusieurs membres, tâches partagées avec priorité et échéance, rappels d'anniversaires. Côté cuisine, le fil conducteur : on choisit les repas de la semaine, l'app calcule les quantités (avec conversion d'unités), déduit ce qui est déjà en stock et ne génère que le manquant, arrondi au conditionnement réel du magasin. À côté : import de recette depuis une URL, OCR d'une recette papier, scan de code-barres enrichi via OpenFoodFacts, scan de ticket de caisse, suggestions de plats selon les dates de péremption et liste de courses triée par rayon. Un foyer se rejoint par code d'invitation, tout est synchronisé en temps réel entre ses membres.</p>
           </div>
           <div class="field">
             <span class="field__label">Résultat</span>
-            <p class="field__text">Une application utilisée au quotidien à la maison. Techniquement, ce dont je suis le plus fier : le moteur de conversion d'unités et de rapprochement flou des ingrédients (accents, pluriels, « 2 c. à soupe d'huile » face au bidon d'1 L en stock), une synchronisation offline-first où Room reste la source de vérité et Firestore ne propage que les deltas, et 9 versions de migrations Room écrites à la main sans jamais détruire de données.</p>
+            <p class="field__text">Une application utilisée au quotidien à la maison. Techniquement, ce dont je suis le plus fier : le moteur de conversion d'unités et de rapprochement flou des ingrédients (accents, pluriels, « 2 c. à soupe d'huile » face au bidon d'1 L en stock), une synchronisation offline-first où Room reste la source de vérité et Firestore ne propage que les deltas, et 9 versions de migrations Room écrites à la main sans jamais détruire de données, dont celle qui a ajouté les quatre tables de l'organisation familiale à une base déjà en service.</p>
           </div>
         </div>
       </article>
