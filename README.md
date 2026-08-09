@@ -88,6 +88,22 @@ existait. Il montre désormais une session SSH ouverte depuis Windows, le servic
 actif et activé au démarrage, et une résolution DNS servie par dnsmasq. La suite
 du labo reste à documenter au fil des cours.
 
+## Aurorys : décision prise
+
+Le 9 août 2026, Aurorys **n'a pas de carte projet** dans ce portfolio. C'est le
+portfolio freelance (`40_Projets/Actifs/Aurorys` dans le vault, Next.js et
+Prisma, déployé sur https://aurorys.site/ et en refonte totale), et la spec de
+conception verrouille déjà la distinction d'avec ce site. Une carte « je
+regroupe mes sites web » serait un contenant là où les cinq projets actuels
+portent chacun une leçon distincte, et elle donnerait plus de surface au web
+alors que la cible est le SISR.
+
+Aurorys est donc seulement **nommé et lié depuis le projet 05, FL Perf**, en fin
+de bloc « Résultat » et en second lien sous `flperf.fr`. La phrase dit « je
+regroupe mes réalisations web sur Aurorys » et non que FL Perf y figure : au 9
+août 2026 il n'y est pas encore, l'ajout est prévu côté Aurorys. Ne pas
+transformer cette mention en carte projet.
+
 ## CV : décision prise
 
 Le 8 août 2026, le CV reste **public** et téléchargeable. Il ne comporte pas
