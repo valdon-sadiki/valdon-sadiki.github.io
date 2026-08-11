@@ -104,6 +104,22 @@ regroupe mes réalisations web sur Aurorys » et non que FL Perf y figure : au 9
 août 2026 il n'y est pas encore, l'ajout est prévu côté Aurorys. Ne pas
 transformer cette mention en carte projet.
 
+## Contact : décision prise
+
+Le 11 août 2026, les deux boutons de contact n'utilisent plus `mailto:`. Un lien
+`mailto:` délègue au client mail associé au protocole : sans association, le
+navigateur n'a personne à qui passer la main et le clic ne produit strictement
+rien. C'était le cas sur le poste de test, et ce l'est pour tout visiteur sans
+client mail configuré, ce qui est courant chez un recruteur travaillant en
+webmail.
+
+Le bouton du hero et la ligne Email du bloc contact pointent donc vers la
+fenêtre de rédaction Gmail, ouverte dans un nouvel onglet, avec le destinataire
+et le sujet pré-remplis. Contrepartie assumée : un visiteur non connecté à Gmail
+voit d'abord un écran de connexion Google. L'adresse reste affichée en clair
+dans le bloc contact, donc recopiable à la main. La question est tranchée : ne
+pas revenir à `mailto:`.
+
 ## CV : décision prise
 
 Le 8 août 2026, le CV reste **public** et téléchargeable. Il ne comporte pas
