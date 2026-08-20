@@ -362,7 +362,27 @@ a { color: inherit; text-decoration: none; }
   transform: translateY(-2px);
 }
 @media (max-width: 560px) {
-  .shot img { height: 260px; }
+  /* Le plancher de 260px de la grille .project ne tient pas sur un telephone :
+     48px de marge de section et 40px de marge de carte de chaque cote ne
+     laissent que 199px de largeur interieure sur un ecran de 375px, et la
+     piste debordait donc du cadre avec son texte et ses captures. Une colonne
+     unique supprime le plancher, la marge reduite rend de la largeur utile. */
+  .project {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    padding: 26px 22px;
+  }
+  /* Meme plancher trop haut sur .about : 280px pour 279px disponibles des que
+     le viewport passe sous 376px, ce qui fait defiler la page en largeur. */
+  .about {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  /* 220px de haut donnent 104px de large a la plus large des vignettes
+     (300x639), bordure comprise : deux tiennent sur une ligne de 235px avec
+     12px d'ecart, la ou 260px n'en laissait passer qu'une seule par ligne. */
+  .project__shots { gap: 12px; }
+  .shot img { height: 220px; }
 }
 
 /* ---------- Visionneuse ---------- */
