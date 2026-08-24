@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Couleurs reprises des variables de la feuille de style : le carre porte
+       --ink (#23201b), le V porte --gold-light (#c9a24a). Les garder en phase
+       avec :root si la palette du site bouge. -->
+  <rect width="32" height="32" fill="#23201b"/>
+  <path d="M8 8.5 L16 23.5 L24 8.5"
+        fill="none"
+        stroke="#c9a24a"
+        stroke-width="4"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+</svg>
