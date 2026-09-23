@@ -20,6 +20,7 @@
   <nav class="site-nav__links">
     <a class="site-nav__link" href="#a-propos">À propos</a>
     <a class="site-nav__link" href="#a-projets">Projets</a>
+    <a class="site-nav__link" href="#a-formation">Formation</a>
     <a class="site-nav__link" href="#a-competences">Compétences</a>
     <a class="site-nav__link" href="#a-contact">Contact</a>
   </nav>
@@ -247,9 +248,128 @@
     </div>
   </section>
 
-  <section class="section section--light" id="a-competences">
+  <section class="section section--light" id="a-formation">
+    <div class="section__head training__head" data-reveal>
+      <p class="section__eyebrow">03 / Formation</p>
+      <h2 class="section__title">Ce que le BTS m'a fait manipuler</h2>
+    </div>
+    <p class="training__intro" data-reveal>BTS SIO SISR depuis la rentrée de septembre 2026. Le premier module porte sur la virtualisation et le poste client Windows : trois travaux pratiques, montés et documentés de bout en bout sur mes propres machines virtuelles. Ce n'est pas encore de la production, mais chaque manipulation ci-dessous, je l'ai faite moi-même et je peux la refaire devant vous.</p>
+    <div class="training">
+
+      <article class="training__item" data-reveal>
+        <div class="training__side">
+          <span class="training__num">TP 01</span>
+          <h3 class="training__title">Dépannage d'un poste client Windows</h3>
+          <div class="project__tools">
+            <span class="tag">VMware Workstation</span>
+            <span class="tag">Windows 11</span>
+            <span class="tag">UEFI / TPM</span>
+            <span class="tag">WinRE</span>
+            <span class="tag">Observateur d'événements</span>
+            <span class="tag">chkdsk</span>
+            <span class="tag">MemTest86</span>
+          </div>
+          <div class="training__shots">
+            <a class="shot shot--land" href="media/evt-4625.png" data-lightbox>
+              <img src="media/evt-4625-thumb.png" alt="Observateur d'événements sur le poste ClientTP1 : dans le journal Sécurité qui compte 31 026 entrées, l'unique échec d'ouverture de session est isolé et son détail affiché, événement 4625, sous-état 0xC0000380" width="400" height="240" loading="lazy">
+            </a>
+          </div>
+        </div>
+        <div class="training__body">
+          <div class="field">
+            <span class="field__label">Le sujet</span>
+            <p class="field__text">Une intervention chez un particulier dont le poste rame, à mener dans l'ordre imposé : écouter, qualifier, observer, isoler, corriger, documenter. Le diagnostic doit désigner un coupable, pas une intuition.</p>
+          </div>
+          <div class="field">
+            <span class="field__label">Ce que j'ai fait</span>
+            <p class="field__text">Installé la machine virtuelle Windows 11 de zéro, en UEFI avec TPM et disque NVMe, puis passé le poste composant par composant : intégrité du disque avec CrystalDiskInfo et chkdsk, mémoire vive avec MemTest86 lancé au démarrage depuis une clé USB puis avec l'outil intégré à Windows, charge processeur et températures, recherche de logiciels indésirables. Ensuite la suite du métier : sauvegarde des dossiers du profil, nettoyage, réinstallation du socle logiciel, tentative de récupération d'un fichier supprimé, et mise en place d'une prise en main à distance pour les interventions suivantes. En parallèle, l'environnement de récupération : mode sans échec, invite de commandes hors système, points de restauration, désinstallation d'une mise à jour, et lecture des journaux Windows.</p>
+          </div>
+          <div class="field">
+            <span class="field__label">Ce que j'en retiens</span>
+            <p class="field__text">Deux réflexes que je garde. Le premier : faire analyser chaque fichier téléchargé avant de l'exécuter sur la machine de quelqu'un d'autre. Le second est moins confortable à admettre, la récupération de données échoue souvent. Chez moi elle n'a rien rendu, et c'est justement la leçon : on prévient le client que ce n'est pas une garantie, avant de lancer l'outil. Sur le plan des journaux, savoir qu'un échec d'authentification porte l'identifiant 4625 permet de le retrouver au milieu de trente mille lignes en quelques secondes.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="training__item" data-reveal>
+        <div class="training__side">
+          <span class="training__num">TP 02</span>
+          <h3 class="training__title">Configuration de référence pour un parc de douze postes</h3>
+          <div class="project__tools">
+            <span class="tag">Groupe de travail</span>
+            <span class="tag">IP fixe</span>
+            <span class="tag">DNS / fichier hosts</span>
+            <span class="tag">Windows Update</span>
+            <span class="tag">Bureau à distance</span>
+            <span class="tag">Partages NTFS</span>
+            <span class="tag">Stratégies locales</span>
+            <span class="tag">Registre</span>
+          </div>
+          <div class="training__shots">
+            <a class="shot shot--land" href="media/tracert.png" data-lightbox>
+              <img src="media/tracert-thumb.png" alt="Invite de commandes : un tracert vers 8.8.8.8 atteint dns.google en dix sauts, avec la passerelle du réseau virtuel en premier saut puis cinq routeurs de l'opérateur, et les temps de réponse de chaque étape" width="400" height="234" loading="lazy">
+            </a>
+          </div>
+        </div>
+        <div class="training__body">
+          <div class="field">
+            <span class="field__label">Le sujet</span>
+            <p class="field__text">Un cabinet de conseil de douze postes, sans serveur ni informaticien en interne. Les postes ont été configurés à la main, un par un, et aucun ne ressemble aux autres. La commande n'est pas de tout refaire mais d'établir un poste de référence : documenté, justifié, reproductible sur les onze suivants et sur ceux à venir.</p>
+          </div>
+          <div class="field">
+            <span class="field__label">Ce que j'ai fait</span>
+            <p class="field__text">Quatorze ateliers sur un poste type, chacun rattaché à un besoin exprimé par le dirigeant. Nommage et groupe de travail, comptes locaux et droits, adresse IP fixe avec tests de connectivité au ping et au tracert, résolution de noms et fichier hosts, maîtrise de Windows Update jusqu'à l'identification d'un correctif fautif par son numéro KB et sa désinstallation, télémétrie et autorisations d'applications, environnement utilisateur standardisé, Bureau à distance, dossiers partagés et permissions, volumes et disques, points de restauration, imprimante PDF, mode borne, stratégies locales et contrôle de compte d'utilisateur, base de registre.</p>
+          </div>
+          <div class="field">
+            <span class="field__label">Ce que j'en retiens</span>
+            <p class="field__text">La partie que je n'attendais pas, c'est l'écrit. Quatre livrables étaient destinés au dirigeant et pas au technicien : une note de sécurité en cinq mesures toutes gratuites, une procédure de sauvegarde bâtie sur la règle des trois copies, une fiche de dix lignes pour les collaborateurs dont le poste est lent, et trois tâches planifiées avec leur justification. Écrire sans jargon force à savoir de quoi on parle. J'en garde une phrase : une sauvegarde jamais restaurée est une sauvegarde supposée, donc le test de restauration fait partie de la procédure et pas des options. Sur le plan technique, la leçon la plus utile est qu'un groupe de travail n'est pas une frontière de sécurité, juste une étiquette : douze postes, douze bases de comptes indépendantes, et c'est précisément ce qui justifie un domaine au-delà d'une certaine taille.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="training__item" data-reveal>
+        <div class="training__side">
+          <span class="training__num">TP 03</span>
+          <h3 class="training__title">Modèles de machines virtuelles et clonage</h3>
+          <div class="project__tools">
+            <span class="tag">Snapshot</span>
+            <span class="tag">Clone lié</span>
+            <span class="tag">Sysprep</span>
+            <span class="tag">SID</span>
+            <span class="tag">TPM virtuel</span>
+            <span class="tag">BitLocker</span>
+            <span class="tag">Debian</span>
+            <span class="tag">SSH</span>
+          </div>
+          <div class="training__shots">
+            <a class="shot shot--land" href="media/vmware-clone.png" data-lightbox>
+              <img src="media/vmware-clone-thumb.png" alt="VMware Workstation : l'assistant de clonage ouvert sur la machine modèle template w11, avec l'option clone lié sélectionnée et son explication, à côté de la bibliothèque qui liste les machines virtuelles du poste" width="400" height="193" loading="lazy">
+            </a>
+          </div>
+        </div>
+        <div class="training__body">
+          <div class="field">
+            <span class="field__label">Le sujet</span>
+            <p class="field__text">Arrêter de réinstaller Windows à chaque travail pratique. Construire une machine modèle propre, la figer, et en tirer autant de postes que nécessaire, sans les faire entrer en conflit une fois sur le même réseau.</p>
+          </div>
+          <div class="field">
+            <span class="field__label">Ce que j'ai fait</span>
+            <p class="field__text">Préparé la machine de référence : compte administrateur local activé, comptes de travail supprimés et leurs dossiers de profil avec, outillage installé en ligne de commande. Généralisée ensuite avec sysprep pour réinitialiser l'identifiant machine et le nom d'hôte, figée par un instantané, puis dupliquée en clone lié, qui ne recopie que les différences. Ajout d'un module de sécurité virtuel sur le clone pour activer le chiffrement du disque, vérifié en PowerShell. Et la même démarche côté Linux sur une Debian : adressage, connexion en SSH depuis l'hôte, puis généralisation par script.</p>
+          </div>
+          <div class="field">
+            <span class="field__label">Ce que j'en retiens</span>
+            <p class="field__text">L'ordre des opérations n'est pas négociable. Deux machines clonées sans généralisation préalable portent le même identifiant, et un annuaire ne sait plus les distinguer : le défaut ne se voit pas tant qu'on reste seul, et se voit très bien le jour de l'intégration au domaine. Dans l'autre sens, un disque déjà chiffré et adossé au module de sécurité interdit la généralisation après coup. C'est aussi le travail pratique qui m'a demandé le plus de rédaction : la documentation que j'en tire fait soixante-cinq pages et quatre-vingt-six figures.</p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+    <p class="training__note" data-reveal>Le reste du programme suit : réseau et adressage, Windows Server et annuaire, scripts. Je rejoue chaque notion sur mon labo avant de la considérer acquise, et j'ajoute ici ce que j'ai réellement fait tourner.</p>
+  </section>
+
+  <section class="section section--alt" id="a-competences">
     <div class="section__head skills__head" data-reveal>
-      <p class="section__eyebrow">03 / Compétences &amp; outils</p>
+      <p class="section__eyebrow">04 / Compétences &amp; outils</p>
       <h2 class="section__title">Mes fondations</h2>
     </div>
     <div class="skills">
@@ -258,49 +378,67 @@
         <span class="skill-group__label">Systèmes</span>
         <div class="skill-group__items">
           <span class="skill-group__item">Windows 10 / 11</span>
-          <span class="skill-group__item">Linux (bases)</span>
-          <span class="skill-group__item">Virtualisation (VM)</span>
           <span class="skill-group__item">Installation &amp; dépannage poste</span>
+          <span class="skill-group__item">WinRE &amp; mode sans échec</span>
+          <span class="skill-group__item">Comptes &amp; profils utilisateurs</span>
+          <span class="skill-group__item">Base de registre</span>
+          <span class="skill-group__item">Linux (bases)</span>
+        </div>
+      </div>
+
+      <div class="skill-group" data-reveal>
+        <span class="skill-group__label">Virtualisation</span>
+        <div class="skill-group__items">
+          <span class="skill-group__item">VMware Workstation Pro</span>
+          <span class="skill-group__item">VirtualBox</span>
+          <span class="skill-group__item">Instantanés &amp; clones liés</span>
+          <span class="skill-group__item">Modèles de VM &amp; sysprep</span>
+          <span class="skill-group__item">TPM virtuel &amp; BitLocker</span>
         </div>
       </div>
 
       <div class="skill-group" data-reveal>
         <span class="skill-group__label">Réseau</span>
         <div class="skill-group__items">
-          <span class="skill-group__item">Configuration DNS</span>
+          <span class="skill-group__item">Adressage IP fixe &amp; DHCP</span>
+          <span class="skill-group__item">DNS &amp; fichier hosts</span>
+          <span class="skill-group__item">Diagnostic (ping, tracert)</span>
           <span class="skill-group__item">Connexion SSH</span>
-          <span class="skill-group__item">Adressage IP (bases)</span>
-          <span class="skill-group__item">Diagnostic connectivité</span>
+          <span class="skill-group__item">Bureau à distance (RDP)</span>
+          <span class="skill-group__item">Partages &amp; permissions</span>
         </div>
       </div>
 
       <div class="skill-group" data-reveal>
-        <span class="skill-group__label">Outils</span>
+        <span class="skill-group__label">Sécurité &amp; exploitation</span>
         <div class="skill-group__items">
-          <span class="skill-group__item">Visual Studio</span>
-          <span class="skill-group__item">Claude Code</span>
+          <span class="skill-group__item">Windows Update &amp; correctifs</span>
+          <span class="skill-group__item">Stratégies locales &amp; UAC</span>
+          <span class="skill-group__item">Sauvegarde 3-2-1 &amp; test de restauration</span>
+          <span class="skill-group__item">Tâches planifiées</span>
+          <span class="skill-group__item">Journaux &amp; observateur d'événements</span>
+        </div>
+      </div>
+
+      <div class="skill-group" data-reveal>
+        <span class="skill-group__label">Outils &amp; méthode</span>
+        <div class="skill-group__items">
+          <span class="skill-group__item">PowerShell &amp; invite de commandes</span>
           <span class="skill-group__item">Obsidian</span>
+          <span class="skill-group__item">Claude Code</span>
           <span class="skill-group__item">Hébergement web &amp; domaine</span>
-        </div>
-      </div>
-
-      <div class="skill-group" data-reveal>
-        <span class="skill-group__label">Méthode</span>
-        <div class="skill-group__items">
-          <span class="skill-group__item">Autoformation</span>
           <span class="skill-group__item">Documentation écrite</span>
           <span class="skill-group__item">Recueil du besoin</span>
-          <span class="skill-group__item">Travail en équipe</span>
         </div>
       </div>
 
     </div>
-    <p class="skills__note" data-reveal>En cours d'apprentissage : Windows Server et Active Directory, VLAN et routage, supervision. J'avance dessus en autonomie, sur ma VM, et j'attends l'alternance pour les pratiquer sur du réel.</p>
+    <p class="skills__note" data-reveal>En cours d'apprentissage : Windows Server et Active Directory, VLAN et routage, supervision, et Python côté développement. J'avance dessus en autonomie, sur mes machines virtuelles, et j'attends l'alternance pour les pratiquer sur du réel.</p>
   </section>
 
-  <section class="section section--alt" id="a-interets">
+  <section class="section section--light" id="a-interets">
     <div class="section__head interests__head" data-reveal>
-      <p class="section__eyebrow">04 / Centres d'intérêt</p>
+      <p class="section__eyebrow">05 / Centres d'intérêt</p>
       <h2 class="section__title">En dehors des machines</h2>
     </div>
     <div class="interests" data-interests data-reveal>
@@ -349,7 +487,7 @@
   <section class="section contact" id="a-contact">
     <div class="contact__deco" data-parallax="0.14"></div>
     <div class="contact__inner">
-      <p class="section__eyebrow contact__eyebrow" data-reveal>05 / Contact</p>
+      <p class="section__eyebrow contact__eyebrow" data-reveal>06 / Contact</p>
       <h2 class="section__title contact__title" data-reveal>Je cherche une alternance de technicien systèmes et réseaux, dès maintenant.</h2>
       <div class="contact__links" data-reveal>
         <a class="contact-link" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=sadiki.valdon1@gmail.com&amp;su=Alternance%20technicien%20syst%C3%A8mes%20et%20r%C3%A9seaux" target="_blank" rel="noopener">

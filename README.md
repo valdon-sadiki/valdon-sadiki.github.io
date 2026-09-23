@@ -26,7 +26,34 @@ qui annulerait cette exclusion.
 ## Modifier le contenu
 
 Tout le texte est dans `index.html`. Ajouter un projet consiste à dupliquer un
-bloc `<article class="project">` et à en remplacer le contenu.
+bloc `<article class="project">` et à en remplacer le contenu, un travail
+pratique de BTS un bloc `<article class="training__item">`.
+
+## Section Formation
+
+Ajoutée le 23 septembre 2026, entre Projets et Compétences. Elle porte le
+travail du BTS SIO SISR, distinct des cinq projets personnels : ceux-ci restent
+des réalisations menées seul, la Formation rend compte de ce qui est manipulé
+en cours. Les deux ne se mélangent pas et la section Projets n'a pas bougé.
+
+Le contenu est tiré du coffre Obsidian `Connaissances SIO`, hors de ce dépôt.
+Trois travaux pratiques du premier module y sont décrits, virtualisation et
+poste client Windows. Rien n'y est annoncé comme rendu ou validé : la
+documentation du TP 3 n'était pas encore remise à la date d'écriture, et la
+section dit seulement ce qui a été manipulé.
+
+**Trois captures, une par travail pratique**, choisies pour ce qu'elles
+prouvent et pas pour leur beauté : `evt-4625` (lecture du journal de sécurité),
+`tracert` (diagnostic de chemin réseau), `vmware-clone` (modèle et clone lié).
+
+- **`vmware-clone.png` est volontairement rognée à 1920 x 925.** L'original
+  affichait en bas le chemin du fichier `.vmx`, qui exposait le OneDrive de
+  l'école. **Ne pas la remplacer par la capture d'origine du coffre.**
+- Les vignettes suivent la convention du dépôt : 400 px de large en paysage,
+  suffixe `-thumb`, image pleine résolution en cible du lien.
+- La barre de navigation est passée à cinq entrées. Sous 560 px, la marque
+  occupe désormais sa propre ligne : sans cela les liens se repliaient un par
+  ligne et la barre collante mangeait un quart d'un écran de téléphone.
 
 ## Déploiement
 

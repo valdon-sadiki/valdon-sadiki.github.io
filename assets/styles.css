@@ -74,6 +74,22 @@ a { color: inherit; text-decoration: none; }
   border-bottom-color: var(--gold);
   color: var(--ink);
 }
+/* Avec cinq entrees, la marque et les liens ne tiennent plus sur une ligne de
+   telephone : les liens se repliaient un par ligne a cote de la marque, et la
+   barre collante mangeait un quart de l'ecran. On passe la marque sur sa
+   propre ligne pour rendre toute la largeur aux liens. */
+@media (max-width: 560px) {
+  .site-nav {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 14px 22px;
+  }
+  .site-nav__links {
+    width: 100%;
+    gap: 16px;
+    font-size: 11px;
+  }
+}
 
 /* ---------- Hero ---------- */
 .hero {
@@ -321,7 +337,11 @@ a { color: inherit; text-decoration: none; }
    colonnes vides et il en reste deux à 50 %. Un troisième enfant occupant
    toute la largeur empêche cet effondrement, et le texte se retrouve écrasé
    sur une colonne sur cinq. Ne pas remonter ce bloc au niveau de .project. */
-.project__shots {
+/* `.training__shots` partage la regle : meme objet visuel, autre bloc hote.
+   La mise en garde ci-dessus ne vaut que pour `.project`, dont la grille est
+   en `auto-fit` ; `.training__item` pose des pistes explicites. */
+.project__shots,
+.training__shots {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
@@ -381,8 +401,10 @@ a { color: inherit; text-decoration: none; }
   /* 220px de haut donnent 104px de large a la plus large des vignettes
      (300x639), bordure comprise : deux tiennent sur une ligne de 235px avec
      12px d'ecart, la ou 260px n'en laissait passer qu'une seule par ligne. */
-  .project__shots { gap: 12px; }
+  .project__shots,
+  .training__shots { gap: 12px; }
   .shot img { height: 220px; }
+  .training__item { padding: 26px 22px; }
 }
 
 /* ---------- Visionneuse ---------- */
@@ -426,6 +448,60 @@ a { color: inherit; text-decoration: none; }
   color: var(--gold-light);
 }
 body.lightbox-open { overflow: hidden; }
+
+/* ---------- Formation ---------- */
+.training__head { margin-bottom: 26px; }
+.training__intro {
+  margin: 0 0 40px;
+  max-width: 680px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--ink-body);
+  text-wrap: pretty;
+}
+.training { display: flex; flex-direction: column; gap: 2px; }
+/* Pistes explicites plutot qu'un `repeat(auto-fit, minmax(Xpx, 1fr))` : la
+   colonne de droite est en `minmax(0, 1fr)`, donc sans plancher dur, et ne
+   peut pas deborder du cadre comme le faisait `.project` sur telephone. */
+.training__item {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  gap: 40px;
+  padding: 34px 32px;
+  background: var(--bg-card);
+  box-shadow: 0 0 0 1px rgba(35, 32, 27, 0.1);
+}
+.training__side { display: flex; flex-direction: column; gap: 12px; }
+.training__num {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+}
+.training__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.18;
+}
+.training__body { display: flex; flex-direction: column; gap: 18px; }
+.training__note {
+  margin: 26px 0 0;
+  max-width: 680px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+/* 250px de piste plus 40px d'ecart ne laissent plus assez de largeur au texte
+   des que la section descend sous ~760px : on passe en colonne unique avant
+   que les paragraphes ne tombent en colonne etroite. */
+@media (max-width: 760px) {
+  .training__item {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}
 
 /* ---------- Compétences ---------- */
 .skills__head { margin-bottom: 50px; }
