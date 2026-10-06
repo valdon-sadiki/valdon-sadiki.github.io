@@ -60,14 +60,18 @@ son texte est plus long et que la colonne de gauche doit l'équilibrer :
   Le portail est un fichier HTML autonome écrit à la main ; il a été ouvert
   dans un navigateur à 1280 px et photographié en pleine page.
 
-  **Trois versions de ce fichier traînent** dans l'arborescence de l'auteur :
-  une dans le dossier du projet au sein du coffre, une à la racine d'un autre
-  dépôt, une dans le dossier des téléchargements. Ce n'est ni la plus ancienne
-  ni celle rangée au bon endroit qui fait foi : **c'est celle des
-  téléchargements**, confirmée par l'auteur comme étant celle réellement
-  déployée sur le serveur. Elle se reconnaît à son bandeau centré, à ses
-  cartes terminées par un lien « Accéder » et à son pied de page sombre.
-  **Ne pas « corriger » cette capture en la reprenant depuis le coffre.**
+  **Trois versions de ce fichier ont coexisté** dans l'arborescence de
+  l'auteur, et ni la taille ni le rangement ne les départageaient. Elles sont
+  depuis réunies dans le dossier du projet au sein du coffre : la version de
+  référence sous le nom `index.html`, les deux brouillons du 30 septembre sous
+  `index-brouillon-<horodatage>.html`.
+
+  La version de référence est **celle du 6 octobre**, confirmée par l'auteur
+  comme étant celle réellement déployée sur le serveur. Elle se reconnaît à son
+  bandeau centré, à ses cartes terminées par un lien « Accéder » et à son pied
+  de page sombre ; les adresses internes n'apparaissent plus sur les tuiles,
+  contrairement aux deux brouillons. **Ne pas « corriger » cette capture en la
+  reprenant depuis un brouillon.**
 - `intranet-vhosts.png` vient du rapport de projet et garde ses annotations
   rouges. C'est la seule capture annotée de la page, acceptée parce qu'elle
   prouve d'un coup les versions d'Apache, de PHP et de MySQL et les six hôtes
