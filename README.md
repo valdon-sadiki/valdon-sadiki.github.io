@@ -61,17 +61,17 @@ son texte est plus long et que la colonne de gauche doit l'équilibrer :
   dans un navigateur à 1280 px et photographié en pleine page.
 
   **Trois versions de ce fichier ont coexisté** dans l'arborescence de
-  l'auteur, et ni la taille ni le rangement ne les départageaient. Elles sont
-  depuis réunies dans le dossier du projet au sein du coffre : la version de
-  référence sous le nom `index.html`, les deux brouillons du 30 septembre sous
-  `index-brouillon-<horodatage>.html`.
+  l'auteur, et ni la taille ni le rangement ne les départageaient : celle qui
+  fait foi était plus petite que l'un des brouillons et se trouvait dans le
+  dossier des téléchargements. Les deux brouillons ont depuis été supprimés sur
+  demande de l'auteur. **Il ne reste qu'un seul fichier**, `index.html` dans le
+  dossier du projet au sein du coffre, daté du 6 octobre 2026 et confirmé comme
+  celui réellement déployé sur le serveur.
 
-  La version de référence est **celle du 6 octobre**, confirmée par l'auteur
-  comme étant celle réellement déployée sur le serveur. Elle se reconnaît à son
-  bandeau centré, à ses cartes terminées par un lien « Accéder » et à son pied
-  de page sombre ; les adresses internes n'apparaissent plus sur les tuiles,
-  contrairement aux deux brouillons. **Ne pas « corriger » cette capture en la
-  reprenant depuis un brouillon.**
+  La capture publiée en est tirée. On la reconnaît à son bandeau centré, à ses
+  cartes terminées par un lien « Accéder » et à son pied de page sombre. Si une
+  autre version du portail réapparaît un jour, **c'est l'auteur qui dit laquelle
+  fait foi** : le classement des fichiers ne l'a jamais indiqué.
 - `intranet-vhosts.png` vient du rapport de projet et garde ses annotations
   rouges. C'est la seule capture annotée de la page, acceptée parce qu'elle
   prouve d'un coup les versions d'Apache, de PHP et de MySQL et les six hôtes
