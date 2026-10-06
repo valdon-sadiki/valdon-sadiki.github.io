@@ -58,10 +58,16 @@ son texte est plus long et que la colonne de gauche doit l'équilibrer :
 
 - **`intranet-portail.png` est un rendu, pas une capture d'écran de séance.**
   Le portail est un fichier HTML autonome écrit à la main ; il a été ouvert
-  dans un navigateur à 1280 px et photographié en pleine page. **Deux versions
-  de ce fichier existent** dans l'arborescence de l'auteur, celle du coffre et
-  une plus récente et plus aboutie restée à la racine d'un autre dépôt. C'est
-  la **plus récente** qui est publiée ici.
+  dans un navigateur à 1280 px et photographié en pleine page.
+
+  **Trois versions de ce fichier traînent** dans l'arborescence de l'auteur :
+  une dans le dossier du projet au sein du coffre, une à la racine d'un autre
+  dépôt, une dans le dossier des téléchargements. Ce n'est ni la plus ancienne
+  ni celle rangée au bon endroit qui fait foi : **c'est celle des
+  téléchargements**, confirmée par l'auteur comme étant celle réellement
+  déployée sur le serveur. Elle se reconnaît à son bandeau centré, à ses
+  cartes terminées par un lien « Accéder » et à son pied de page sombre.
+  **Ne pas « corriger » cette capture en la reprenant depuis le coffre.**
 - `intranet-vhosts.png` vient du rapport de projet et garde ses annotations
   rouges. C'est la seule capture annotée de la page, acceptée parce qu'elle
   prouve d'un coup les versions d'Apache, de PHP et de MySQL et les six hôtes
