@@ -42,6 +42,42 @@ poste client Windows. Rien n'y est annoncé comme rendu ou validé : la
 documentation du TP 3 n'était pas encore remise à la date d'écriture, et la
 section dit seulement ce qui a été manipulé.
 
+### Bloc « Projet 01 », ajouté le 6 octobre 2026
+
+Le projet Intranet passe **en tête de la section**, avant les trois travaux
+pratiques : c'est la pièce la plus lourde et la plus proche du métier visé, et
+un lecteur qui ne descend pas doit la voir. L'ordre n'est donc pas
+chronologique, c'est délibéré.
+
+Le bloc dit explicitement que le projet est **en cours** et nomme ce qui reste
+à faire (réseau, analyse de sécurité, sauvegarde). Le mettre au passé serait
+faux tant que les étapes 8 à 10 ne sont pas rendues.
+
+Deux captures pour ce bloc, contre une pour les travaux pratiques, parce que
+son texte est plus long et que la colonne de gauche doit l'équilibrer :
+
+- **`intranet-portail.png` est un rendu, pas une capture d'écran de séance.**
+  Le portail est un fichier HTML autonome écrit à la main ; il a été ouvert
+  dans un navigateur à 1280 px et photographié en pleine page. **Deux versions
+  de ce fichier existent** dans l'arborescence de l'auteur, celle du coffre et
+  une plus récente et plus aboutie restée à la racine d'un autre dépôt. C'est
+  la **plus récente** qui est publiée ici.
+- `intranet-vhosts.png` vient du rapport de projet et garde ses annotations
+  rouges. C'est la seule capture annotée de la page, acceptée parce qu'elle
+  prouve d'un coup les versions d'Apache, de PHP et de MySQL et les six hôtes
+  virtuels.
+
+**Le volet CEJM du BTS est volontairement absent** des blocs. Économie, droit
+et management comptent pour le diplôme mais ne produisent aucune manipulation,
+et la section est construite sur ce qui a été fait tourner. Une seule phrase
+les mentionne, en fin de section. Ne pas « compléter » la page avec ces cours.
+
+Compétences passées à **six groupes**. Le plancher de la grille `.skills` monte
+de 240 à 340 px pour tomber sur trois colonnes pleines au lieu de cinq colonnes
+plus une carte orpheline. Ce plancher ne tenant sur aucun téléphone, la grille
+passe en colonne unique sous 560 px, **ce qui corrige au passage le
+débordement sous 336 px** signalé en août et laissé en l'état jusqu'ici.
+
 **Trois captures, une par travail pratique**, choisies pour ce qu'elles
 prouvent et pas pour leur beauté : `evt-4625` (lecture du journal de sécurité),
 `tracert` (diagnostic de chemin réseau), `vmware-clone` (modèle et clone lié).

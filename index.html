@@ -253,8 +253,47 @@
       <p class="section__eyebrow">03 / Formation</p>
       <h2 class="section__title">Ce que le BTS m'a fait manipuler</h2>
     </div>
-    <p class="training__intro" data-reveal>BTS SIO SISR depuis la rentrée de septembre 2026. Le premier module porte sur la virtualisation et le poste client Windows : trois travaux pratiques, montés et documentés de bout en bout sur mes propres machines virtuelles. Ce n'est pas encore de la production, mais chaque manipulation ci-dessous, je l'ai faite moi-même et je peux la refaire devant vous.</p>
+    <p class="training__intro" data-reveal>BTS SIO SISR depuis la rentrée de septembre 2026. Un projet en cours, et les trois travaux pratiques qui l'ont préparé : tout est monté et documenté de bout en bout sur mes propres machines virtuelles, et le serveur du projet est d'ailleurs un clone du modèle construit au TP 3. Ce n'est pas encore de la production, mais chaque manipulation ci-dessous, je l'ai faite moi-même et je peux la refaire devant vous.</p>
     <div class="training">
+
+      <article class="training__item" data-reveal>
+        <div class="training__side">
+          <span class="training__num">Projet 01 · en cours</span>
+          <h3 class="training__title">Intranet d'un cabinet d'expertise comptable</h3>
+          <div class="project__tools">
+            <span class="tag">Serveur Windows en VM</span>
+            <span class="tag">Apache 2.4</span>
+            <span class="tag">PHP 8.3</span>
+            <span class="tag">MySQL 8.4</span>
+            <span class="tag">Hôtes virtuels</span>
+            <span class="tag">Fichier hosts</span>
+            <span class="tag">IP fixe</span>
+            <span class="tag">Comptes &amp; droits</span>
+          </div>
+          <div class="training__shots">
+            <a class="shot shot--land" href="media/intranet-portail.png" data-lightbox>
+              <img src="media/intranet-portail-thumb.png" alt="Portail d'accueil de l'intranet EXPERTY : un bandeau sombre au titre du cabinet, puis quatre tuiles menant à la documentation interne, à la galerie photo, à la veille et au forum, chacune portant son adresse interne" width="400" height="237" loading="lazy">
+            </a>
+            <a class="shot shot--land" href="media/intranet-vhosts.png" data-lightbox>
+              <img src="media/intranet-vhosts-thumb.png" alt="Page d'accueil de WampServer sur le serveur : Apache 2.4.65, PHP 8.3.28 et MySQL 8.4.7, les cinq dossiers de sites et les six hôtes virtuels reconnus sans erreur, dont wiki, portail, photos, veille et forum en experty.local" width="400" height="155" loading="lazy">
+            </a>
+          </div>
+        </div>
+        <div class="training__body">
+          <div class="field">
+            <span class="field__label">Le sujet</span>
+            <p class="field__text">Un cabinet d'expertise comptable veut réunir ses outils internes sur un seul serveur : la documentation des procédures, une galerie photo, une veille fiscale et un forum d'entraide, le tout derrière un portail d'accueil. Chaque service doit répondre à son propre nom interne, et chaque application rester cloisonnée des autres.</p>
+          </div>
+          <div class="field">
+            <span class="field__label">Ce que j'ai fait</span>
+            <p class="field__text">Le serveur est un clone lié du modèle Windows construit au TP 3, carte réseau en pont et adresse fixe, ce qui m'a évité de réinstaller le système. Dessus, un serveur web Apache avec PHP et MySQL, puis cinq hôtes virtuels déclarés dans Apache et résolus par le fichier hosts. Quatre applications installées et configurées : un wiki fermé avec ses listes de contrôle d'accès, une galerie avec un album privé, un agrégateur de veille consultable sans compte, un forum à deux salons. Pour chacune, une base dédiée et un compte de base de données qui n'a de droits que sur elle, puis trois rôles, administrateur, intermédiaire et lecteur, vérifiés en ouvrant réellement une session sous chaque compte. Le portail d'accueil est écrit à la main, sans JavaScript ni ressource externe. Un instantané de la machine à chaque fin d'étape.</p>
+          </div>
+          <div class="field">
+            <span class="field__label">Ce que j'en retiens</span>
+            <p class="field__text">Deux incidents valaient plus que le reste. L'agrégateur m'a averti que son hôte virtuel servait tout son dossier, y compris le sous-dossier qui contient sa configuration et le mot de passe de sa base en clair : j'ai repointé la racine du site sur le seul sous-dossier public. N'exposer que ce qui doit l'être est une décision de configuration, pas une option. Le second est plus inconfortable : le réseau de l'école inspecte le trafic chiffré et remplace les certificats, ce que PHP refuse, donc aucun flux ne se chargeait. J'ai désactivé la vérification pour avancer, en sachant que la connexion reste chiffrée mais que le serveur ne vérifie plus l'identité des sites, et en notant la vraie solution : ajouter le certificat du proxy à la liste de confiance de PHP. Je préfère documenter un contournement et son risque que le laisser passer pour une correction. Restent à faire la mise à disposition sur le réseau, l'analyse de sécurité et la procédure de sauvegarde.</p>
+          </div>
+        </div>
+      </article>
 
       <article class="training__item" data-reveal>
         <div class="training__side">
@@ -364,7 +403,7 @@
       </article>
 
     </div>
-    <p class="training__note" data-reveal>Le reste du programme suit : réseau et adressage, Windows Server et annuaire, scripts. Je rejoue chaque notion sur mon labo avant de la considérer acquise, et j'ajoute ici ce que j'ai réellement fait tourner.</p>
+    <p class="training__note" data-reveal>Le reste du programme suit : réseau et adressage, Windows Server et annuaire, scripts. Le BTS comporte aussi un volet économique, juridique et managérial, utile pour comprendre une entreprise cliente mais sans manipulation à montrer ici. Je rejoue chaque notion sur mon labo avant de la considérer acquise, et j'ajoute sur cette page ce que j'ai réellement fait tourner.</p>
   </section>
 
   <section class="section section--alt" id="a-competences">
@@ -406,6 +445,17 @@
           <span class="skill-group__item">Connexion SSH</span>
           <span class="skill-group__item">Bureau à distance (RDP)</span>
           <span class="skill-group__item">Partages &amp; permissions</span>
+        </div>
+      </div>
+
+      <div class="skill-group" data-reveal>
+        <span class="skill-group__label">Serveur web &amp; données</span>
+        <div class="skill-group__items">
+          <span class="skill-group__item">Apache 2.4 &amp; hôtes virtuels</span>
+          <span class="skill-group__item">PHP 8.3</span>
+          <span class="skill-group__item">MySQL 8.4 &amp; phpMyAdmin</span>
+          <span class="skill-group__item">Base &amp; compte dédiés par application</span>
+          <span class="skill-group__item">Rôles et droits applicatifs</span>
         </div>
       </div>
 

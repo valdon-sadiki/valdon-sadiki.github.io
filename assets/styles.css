@@ -505,10 +505,20 @@ body.lightbox-open { overflow: hidden; }
 
 /* ---------- Compétences ---------- */
 .skills__head { margin-bottom: 50px; }
+/* Plancher a 340px plutot que 240 : avec six groupes, 240px ouvrait cinq
+   colonnes sur un grand ecran et laissait une carte seule sur la seconde
+   ligne. 340px donne trois colonnes pleines, donc deux lignes de trois. */
 .skills {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 2px;
+}
+/* Le plancher ne tient sur aucun telephone : 48px de marge de section de
+   chaque cote ne laissent que 279px de large sur un ecran de 375px. La piste
+   debordait deja avec l'ancien plancher de 240px sous 336px de viewport, un
+   defaut connu et laisse en l'etat ; le relever imposait de le corriger. */
+@media (max-width: 560px) {
+  .skills { grid-template-columns: 1fr; }
 }
 .skill-group {
   display: flex;
